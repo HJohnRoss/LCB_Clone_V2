@@ -1,0 +1,42 @@
+@page "/legislators"
+
+@inject HttpClient Http
+
+<h3>Legislators</h3>
+
+<input @bind="firstName" />
+<button @onclick="AddLegislator">Add</button>
+
+<ul>
+@foreach (var legislator in legislators)
+{
+	<li>@legislator.FirstName</li>
+}
+</ul>
+
+@code {
+    List<LCB_Clone.Shared.Models.Legislator> legislators = new();
+    string firstName = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Fetch all legislators from the API
+        legislators = await Http.GetFromJsonAsync<List<LCB_Clone.Shared.Models.Legislator>>("api/legislator") ?? new();
+    }
+
+    async Task AddLegislator()
+    {
+        // Create a new legislator and post to API
+        var newLeg = new LCB_Clone.Shared.Models.Legislator
+        {
+            FirstName = firstName,
+        };
+
+        await Http.PostAsJsonAsync("api/legislator", newLeg);
+
+        // Refresh list
+        legislators = await Http.GetFromJsonAsync<List<LCB_Clone.Shared.Models.Legislator>>("api/legislator") ?? new();
+        firstName = "";
+    }
+}
+
