@@ -9,12 +9,13 @@ public static class LegislatorEndpoints
 {
 	public static void MapLegislatorEndpoints(this WebApplication app)
 	{
-		app.MapGet("/api/legislator", async (AppDbContext db) => await db.Legislators.ToListAsync());
+		app.MapGet("/api/legislator", async (AppDbContext db) => await db.Legislator.ToListAsync());
 		app.MapPost("/api/legislator", async (Legislator legislator, AppDbContext db) =>
 		{
-			db.Legislators.Add(legislator);
+			db.Legislator.Add(legislator);
 			await db.SaveChangesAsync();
 			return Results.Ok(legislator);
 		});
+		// app.MapDelete("/api/legislator/{id}");
 	}
 }

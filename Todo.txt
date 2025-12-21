@@ -1,0 +1,19 @@
+[Blazor]
+	- Make the "/" route and make html/css for home page
+
+[API]
+	[Currently Working On] - Create legislators
+
+[Shared]
+	- Create the folowing models:
+		- Commitee
+		- Bills
+
+[Desktop]
+	- figure out what I want to make the app with
+		- Compatible with linux and windows
+
+
+[Text Editor]
+	- Autocomplete for C#
+	- LSP for Blazor

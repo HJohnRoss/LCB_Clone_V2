@@ -1,0 +1,5 @@
+1. Add model in Shared
+2. Add DbSet in API DbContext
+
+dotnet ef migrations add <MigrationName> --project LCB_Clone.Api --startup-project LCB_Clone.Api
+dotnet ef database update --project LCB_Clone.Api --startup-project LCB_Clone.Api

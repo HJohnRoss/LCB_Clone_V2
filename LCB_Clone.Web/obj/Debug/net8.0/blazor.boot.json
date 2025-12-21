@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "LCB_Clone.Web",
   "resources": {
-    "hash": "sha256-8zftHvTNlFt5pyCR4m2FdcsTk4V9Y7oavDj20tIzouw=",
+    "hash": "sha256-ndr3FoseTS471HBEdsoO0n3yVFCMLTzsnoLdvESCZBk=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-vtotCeXt2UD6oc459laJT32vBgigZ+eLoUmdeFkvYDk="
     },
@@ -209,12 +209,12 @@
       "mscorlib.wasm": "sha256-K9gNrsN9UmPqLs6J/FrkiKpmkVGnHjjqUsc7YGvesCY=",
       "netstandard.wasm": "sha256-4emjlXLM9qW3t2tlII20SDylBgG4ueI0wy9nh5FMd8g=",
       "System.Private.CoreLib.wasm": "sha256-2DN4v7I/tabltDEPdIO8sDBB0tY8zOm+0CvHbMssXW4=",
-      "LCB_Clone.Shared.wasm": "sha256-3kosHuvOjCF/9i8NxQ4K1fQ3ppkr58LVuCt6h2NsL3A=",
-      "LCB_Clone.Web.wasm": "sha256-cuWv0azhiXX0ojUX49VDZMmFtgypZT5JH52wlHlVhPs="
+      "LCB_Clone.Shared.wasm": "sha256-fAff8TmX7d+JyPW7nBOJS1B4WiNoAyTgTwFWj4M4KWY=",
+      "LCB_Clone.Web.wasm": "sha256-QPRyywFVUe5rFAwXqBXv/RsHUJg+P5ZB422yw4rqfR4="
     },
     "pdb": {
-      "LCB_Clone.Shared.pdb": "sha256-VAlue8Pl2YXCqU42l0Ax+hU7Lz2eryX1s0+asAshQVM=",
-      "LCB_Clone.Web.pdb": "sha256-CID42pB30AYu4bbl0gL+RP8/iiEJAiuLsEPudVVM9Pc="
+      "LCB_Clone.Shared.pdb": "sha256-xX8sDSZH3Fn9z2I7fVJkTqzqUEhgUbcRP/H58rmI0m0=",
+      "LCB_Clone.Web.pdb": "sha256-uukhP0eTfMxxGtzthtGVSzhm+DDPXjLZbiQpJYm/VdM="
     }
   },
   "cacheBootResources": true,

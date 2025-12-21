@@ -9,3 +9,4 @@
 /home/john/code/LCB_Clone/LCB_Clone.Shared/obj/Debug/net8.0/refint/LCB_Clone.Shared.dll
 /home/john/code/LCB_Clone/LCB_Clone.Shared/obj/Debug/net8.0/LCB_Clone.Shared.pdb
 /home/john/code/LCB_Clone/LCB_Clone.Shared/obj/Debug/net8.0/ref/LCB_Clone.Shared.dll
+/home/john/code/LCB_Clone/LCB_Clone.Shared/obj/Debug/net8.0/LCB_Clone.Shared.sourcelink.json
