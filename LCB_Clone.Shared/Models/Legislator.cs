@@ -28,7 +28,7 @@ public class Legislator
 	public List<string> Personal { get; set; } = new List<string>();
 
 	// update after creating models
-	public List<string> CommiteesServing = new List<string>();
-	public List<string> PrimarySponsorBills = new List<string>();
-	public List<string> SecondarySponsorBills = new List<string>();
+	// public List<string> CommiteesServing = new List<string>();
+	// public List<string> PrimarySponsorBills = new List<string>();
+	// public List<string> SecondarySponsorBills = new List<string>();
 }

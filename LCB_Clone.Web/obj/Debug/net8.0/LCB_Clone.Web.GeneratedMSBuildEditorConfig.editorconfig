@@ -30,10 +30,6 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/john/code/LCB_Clone/LCB_Clone.Web/Pages/Home.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSG9tZS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
 [/home/john/code/LCB_Clone/LCB_Clone.Web/Pages/Legislator.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTGVnaXNsYXRvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -42,6 +38,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/home/john/code/LCB_Clone/LCB_Clone.Web/Components/NavbarHome.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9OYXZiYXJIb21lLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-hzksiupl7d
+
 [/home/john/code/LCB_Clone/LCB_Clone.Web/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L01haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-l2r1d6nxw6
+
+[/home/john/code/LCB_Clone/LCB_Clone.Web/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSG9tZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-0cq57vet8a

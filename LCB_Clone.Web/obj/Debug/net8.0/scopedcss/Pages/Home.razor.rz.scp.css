@@ -1,0 +1,33 @@
+.mainContent[b-0cq57vet8a] {
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+}
+
+.home_right-li[b-0cq57vet8a] {
+	list-style: none;
+	padding: 5px 20px;
+	border-top: 1px solid #bbb;
+}
+
+.home_right-li-none[b-0cq57vet8a] {
+	border-top: none;
+}
+
+.home_right-a[b-0cq57vet8a] {
+	color: #333;
+	text-decoration: none;
+}
+
+.home_right-li:hover[b-0cq57vet8a] {
+	background-color: #1b2f5a;
+}
+
+.home_right-li:hover>.home_right-a[b-0cq57vet8a] {
+	color: white;
+}
+
+.home_right-secondary-li[b-0cq57vet8a] {
+	margin-left: 20px;
+	padding: 0px 20px;
+}

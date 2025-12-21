@@ -1,13 +1,241 @@
 ﻿@page "/"
+@using LCB_Clone.Web.Components
 
 <PageTitle>Nevada Legislature</PageTitle>
 
+<NavbarHome/>
+
 <div class="mainContent">
 
-<div class="left_col">
-<ul>
-	<li>Session Info</li>
-</ul>
+	<div class="left_col">
+		<ul>
+			<li>
+				<a href="">
+					Session Info
+				</a>
+			</li>
+			<li>
+				<a href="">
+					Interim Info
+				</a>
+			</li>
+			<li>
+				<a href="">
+					Law Library
+				</a>
+			</li>
+			<li>
+				<a href="">
+					General Info
+				</a>
+			</li>
+			<li>
+				<a href="">
+					Councel Bureau
+				</a>
+			</li>
+			<li>
+				<a href="">
+					Reasearch/<br>
+					Library
+				</a>
+			</li>
+			<li>
+				<a href="">
+					Assembly
+				</a>
+			</li>
+			<li>
+				<a href="">
+					Senate
+				</a>
+			</li>
+		</ul>
+
+		<ul>
+			<li>
+				<a href="">
+					Confidential<br>
+					Reporting of<br>
+					Harassment
+				</a>
+			</li>
+			<li>
+				<a href="">
+					Accessibility and<br>
+					Language Access
+				</a>
+			</li>
+			<li>
+				<a href="">
+					Building<br>
+					Information
+				</a>
+			</li>
+			<li>
+				<a href="">
+					Regulations on<br>
+					Use of Legislative<br>
+					Grounds and<br>
+					Parking
+				</a>
+			</li>
+		</ul>
+	</div>
+
+	<div class="center">
+		<div>
+			<img src="/assets/CCLegBldg.png" alt="Carson City Nevada Legislature Building"\>
+		</div>
+
+		<div>
+			<div>
+				<h2>Welcome to the Nevada State Legislature</h2>
+				<p>
+					The 36th Special Session of the Nevada Legislature began on November 13, 2025 and adjourned sine die on November 19, 2025.
+				</p>
+				<p>
+					The Nevada Legislature has locations for viewing the legislative process in both Carson City and Las Vegas. 
+				</p>
+			</div>
+
+			<div>
+				<div>
+					<a href="/Assembly/">Nevada State Assembly</a>
+					<p>The Assembly has adjourned.</p>
+				</div>
+
+				<div>
+					<a href="/Senate/">Nevada State Senate</a>
+					<p>The Senate has adjourned.</p>
+				</div>
+			</div>
+		</div>
+
+		<hr/>
+
+		<div>
+			<img src="/assets/BattleBornCafe-sm.jpg"/>
+
+			<div>
+				<h2>Dining at the Legislature</h2>
+
+				<p>
+					Dining options at the Nevada Legislature have recently expanded! Two new cafés have opened: Battle Born Café in Carson City, and 1864 Café in Las Vegas. Both cafés are open to the public and offer a variety of menu items for breakfast, lunch, or a quick coffee break. 
+				</p>
+
+				<a href="/General/Dining">View Dining Options</a>
+			</div>
+
+			<img src="/assets/1864Cafe-sm.jpg"/>
+		</div>
+
+		<hr/>
+	</div>
+
+	<ul class="home_right-ul">
+		<li class="home_right-li home_right-li-none">
+			<a class="home_right-a" href="">Videos of Archived<br>Events</a>
+		</li>
+		<li class="home_right-li">
+			<a class="home_right-a" href="">36th (2025) Special<br>Session</a>
+		</li>
+		<li class="home_right-li home_right-secondary-li home_right-li-none">
+			<a class="home_right-a" href="">
+				• Proclamation<br>
+				Convening 36th<br>
+				(2025) Special<br>
+				Session
+			</a>
+		</li>
+		<li class="home_right-li home_right-secondary-li home_right-li-none">
+			<a class="home_right-a" href="">• NELIS</a>
+		</li>
+		<li class="home_right-li">
+			<a class="home_right-a" href="">Current Legislator<br>Contact Information</a>
+		</li>
+		<li class="home_right-li home_right-secondary-li home_right-li-none">
+			<a class="home_right-a" href="">• Senate</a>
+		</li>
+		<li class="home_right-li home_right-secondary-li home_right-li-none">
+			<a class="home_right-a" href="">• Assembly</a>
+		</li>
+		<li class="home_right-li">
+			<a class="home_right-a" href="">Lobbyist Information</a>
+		</li>
+		<li class="home_right-li">
+			<a class="home_right-a" href="">
+				Apply to Serve on a<br>
+				Legislatively<br>
+				Appointed Committee
+			</a>
+		</li>
+		<li class="home_right-li">
+			<a class="home_right-a" href="">
+				Who's My Legislator?<br>
+				What's My District
+			</a>
+		</li>
+		<li class="home_right-li">
+			<a class="home_right-a" href="">
+				Register of<br>
+				Administrative<br>
+				Regulations
+			</a>
+		</li>
+		<li class="home_right-li">
+			<a class="home_right-a" href="">
+				Administrative<br>
+				Regulation Notices
+			</a>
+		</li>
+		<li class="home_right-li">
+			<a class="home_right-a" href="">
+				Public Meeting Notice
+			</a>
+		</li>
+		<li class="home_right-li">
+			<a class="home_right-a" href="">
+				Visit Our Gift Shop
+			</a>
+		</li>
+		<li class="home_right-li">
+			<a class="home_right-a" href="">
+				Employment<br>
+				Opportunities
+			</a>
+		</li>
+		<li class="home_right-li">
+			<a class="home_right-a" href="">
+				Nevada State Printing
+			</a>
+		</li>
+		<li class="home_right-li">
+			<a class="home_right-a" href="">
+				Events Calender
+			</a>
+		</li>
+		<li class="home_right-li">
+			<a class="home_right-a" href="">
+				<img src="/assets/HomePageLink.gif"/>
+			</a>
+		</li>
+	</ul>
+
 </div>
 
+<div>
+	<div>
+		<a href="">Search</a>
+		<a href="">Text Only Site Map</a>
+		<a href="">Video Gallery</a>
+		<a href="">Contact Us</a>
+		<a href="">Privacy Policy</a>
+	</div>
+
+	<p>© 2025 Legislative Counsel Bureau.</p>
+	<p>This is a clone and not copyrighted</p>
+
+	<!-- This is not implimented on the leg.state.nv.us site -->
+	<a href="">Give Us Your Feedback about our Website</a>
 </div>
