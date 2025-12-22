@@ -11,19 +11,19 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(options =>
-	options.UseMySql(
-		builder.Configuration.GetConnectionString("Default"),
-		ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("Default"))
-	)
+    options.UseMySql(
+        builder.Configuration.GetConnectionString("Default"),
+        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("Default"))
+    )
 );
 
 // change this for production
 builder.Services.AddCors(options =>
 {
-	options.AddDefaultPolicy(policy =>
-		policy.AllowAnyOrigin()
-			.AllowAnyHeader()
-			.AllowAnyMethod());
+    options.AddDefaultPolicy(policy =>
+        policy.AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod());
 });
 
 var app = builder.Build();

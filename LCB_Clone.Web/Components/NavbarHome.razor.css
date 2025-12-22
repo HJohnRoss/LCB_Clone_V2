@@ -1,6 +1,14 @@
 .NavbarHome {
+	position: sticky;
+	top: 0;
+	left: 0;
+	width: 100%;
 	background-color: #25408F;
 	padding: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 1000;
 }
 
 .NavbarHome_wrapper {
@@ -17,6 +25,7 @@
 .NavbarHome_ul {
 	display: flex;
 	list-style: none;
+	margin: 0;
 }
 
 .NavbarHome_li {
