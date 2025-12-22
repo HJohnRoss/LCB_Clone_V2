@@ -3,6 +3,7 @@
 
 
 [API]
+	- [Currently doing] Figure Out what DTO's are and what they do exactly
 	- Create a Session Model
 	- Create Bill Model
 	- Create Resolutions Model

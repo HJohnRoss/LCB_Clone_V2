@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "8d6Sz7E9oqU=",
+  "dgSpecHash": "HpFUQJFjOBL3NNyBubdX+Qt16/8xDTuS4RGsZTo5N0/6b19QGvLudM18OvvAwiP9v5j5mR8C4lbAP70hAAAvNw==",
   "success": true,
   "projectFilePath": "/home/john/code/LCB_Clone/LCB_Clone.Api/LCB_Clone.Api.csproj",
   "expectedPackageFiles": [
@@ -49,8 +49,7 @@
     "/home/john/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "/home/john/.nuget/packages/system.text.encoding.codepages/6.0.0/system.text.encoding.codepages.6.0.0.nupkg.sha512",
     "/home/john/.nuget/packages/system.threading.channels/6.0.0/system.threading.channels.6.0.0.nupkg.sha512",
-    "/home/john/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.22/microsoft.aspnetcore.app.ref.8.0.22.nupkg.sha512",
-    "/home/john/.nuget/packages/microsoft.netcore.app.host.linux-x64/8.0.22/microsoft.netcore.app.host.linux-x64.8.0.22.nupkg.sha512"
+    "/home/john/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.22/microsoft.aspnetcore.app.ref.8.0.22.nupkg.sha512"
   ],
   "logs": []
 }

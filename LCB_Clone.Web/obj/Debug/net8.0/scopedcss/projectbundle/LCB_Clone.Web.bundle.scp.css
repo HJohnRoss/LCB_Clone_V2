@@ -94,7 +94,7 @@
 .left_col-a[b-0cq57vet8a] {
 	text-decoration: none;
 	color: black;
-	padding: 8px 25px;
+	padding: 5px 35px;
 	display: block;
 	white-space: nowrap;
 	border-bottom: .1px solid #bbb;
@@ -123,7 +123,8 @@
 }
 
 .left_col-arrow[b-0cq57vet8a] {
-	display: inline-block;
+	position: relative;
+	right: -25px;
 	border: solid black;
 	border-width: 0 2px 2px 0;
 	padding: 1.5px;
@@ -178,11 +179,36 @@
 	display: flex;
 	background-color: #25408F;
 	color: white;
-	width: 80%;
+	width: 1200px;
+	height: 400px;
+	margin: auto;
+	font-size: 17.3333px;
+	justify-content: center;
+}
+
+.main_card-container[b-0cq57vet8a] {
+	width: 50%;
+	display: flex;
+	flex-direction: column;
 }
 
 .main_card-text-container-1[b-0cq57vet8a] {
 	margin: 20px 20px;
+}
+
+.main_card-header[b-0cq57vet8a] {
+	font-size: 32px;
+	font-weight: bold;
+}
+
+.main_card-text-1[b-0cq57vet8a] {
+	margin-bottom: 10px;
+	font-size: 24px;
+}
+
+.main_card-text-2[b-0cq57vet8a] {
+	font-size: 20px;
+	padding: 0;
 }
 
 .main_card-text-container-2[b-0cq57vet8a] {
@@ -195,8 +221,8 @@
 .main_card-btn[b-0cq57vet8a] {
 	color: #25408F;
 	background-color: white;
-	border-radius: 5px;
-	padding: 8px 5px;
+	border-radius: 3px;
+	padding: 10px 15px;
 	text-decoration: none;
 	font-weight: bold;
 	font-size: 14px;
@@ -212,8 +238,13 @@
 }
 
 .main_card-img[b-0cq57vet8a] {
-	width: 100%;
+	width: 50%;
 	height: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	position: relative;
+	padding: 0;
 }
 
 .center-hr[b-0cq57vet8a] {
@@ -228,16 +259,13 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	width: 80%;
+	width: 1200px;
 	color: #333;
 }
 
 .center-container-text[b-0cq57vet8a] {
-	width: 45%;
-}
-
-.center-container-text>p[b-0cq57vet8a] {
-	font-size: 16px;
+	width: 40%;
+	font-size: 15px;
 }
 
 .center-container-btn[b-0cq57vet8a] {
@@ -252,6 +280,7 @@
 	text-decoration: none;
 	color: black;
 	border: 1px solid #53719e;
+	font-weight: bold;
 }
 
 .center-dining-btn:hover[b-0cq57vet8a] {

@@ -30,10 +30,6 @@ namespace LCB_Clone.Api.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Affiliations")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
                     b.Property<int?>("CCOffice")
                         .HasColumnType("int");
 
@@ -41,10 +37,6 @@ namespace LCB_Clone.Api.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("County")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Education")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -56,10 +48,6 @@ namespace LCB_Clone.Api.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("HonorsRewards")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
                     b.Property<int?>("LVOffice")
                         .HasColumnType("int");
 
@@ -67,34 +55,10 @@ namespace LCB_Clone.Api.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("LegService")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
                     b.Property<string>("MiddleName")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("MilitaryService")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("OtherAchivements")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("OtherPublicService")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
                     b.Property<string>("Party")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Personal")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Proffesional")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -103,7 +67,7 @@ namespace LCB_Clone.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Legislator");
+                    b.ToTable("Legislators");
                 });
 
             modelBuilder.Entity("LCB_Clone.Shared.Models.Social", b =>
@@ -129,7 +93,7 @@ namespace LCB_Clone.Api.Migrations
 
                     b.HasIndex("LegislatorId");
 
-                    b.ToTable("Social");
+                    b.ToTable("Socials");
                 });
 
             modelBuilder.Entity("LCB_Clone.Shared.Models.Social", b =>
