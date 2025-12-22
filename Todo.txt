@@ -1,19 +1,29 @@
 [Blazor]
-	- Make the "/" route and make html/css for home page
+	- Create Homepage for NELIS
+
 
 [API]
-	[Currently Working On] - Create legislators
+	- Create a Session Model
+	- Create Bill Model
+	- Create Resolutions Model
+	- Create Petitions Model
+	- Create Budge Model
+	- Create Committees Model
+	- Create Floor Sessions
+
 
 [Shared]
 	- Create the folowing models:
 		- Commitee
 		- Bills
 
+
 [Desktop]
 	- figure out what I want to make the app with
 		- Compatible with linux and windows
 
 
-[Text Editor]
-	- Autocomplete for C#
-	- LSP for Blazor
+
+
+[Completed]
+	- Make the "/" route and make html/css for home page [completed]

@@ -1044,8 +1044,8 @@
 /home/john/code/LCB_Clone/LCB_Clone.Web/obj/Debug/net8.0/scopedcss/projectbundle/LCB_Clone.Web.bundle.scp.css
 /home/john/code/LCB_Clone/LCB_Clone.Web/obj/Debug/net8.0/scopedcss/Layout/MainLayout.razor.rz.scp.css
 /home/john/code/LCB_Clone/LCB_Clone.Web/obj/Debug/net8.0/scopedcss/Pages/Home.razor.rz.scp.css
-/home/john/code/LCB_Clone/LCB_Clone.Web/obj/Debug/net8.0/compressed/jxid2wbcrq-{0}-o3wheusn1w-o3wheusn1w.gz
-/home/john/code/LCB_Clone/LCB_Clone.Web/obj/Debug/net8.0/compressed/5gci6hvf4g-{0}-1rjnc7ioia-1rjnc7ioia.gz
-/home/john/code/LCB_Clone/LCB_Clone.Web/obj/Debug/net8.0/compressed/nuicisi6k6-{0}-timu8ji2sp-timu8ji2sp.gz
-/home/john/code/LCB_Clone/LCB_Clone.Web/obj/Debug/net8.0/compressed/ly5voftgr0-{0}-1yl7262zmx-1yl7262zmx.gz
-/home/john/code/LCB_Clone/LCB_Clone.Web/obj/Debug/net8.0/compressed/yso26gadpx-{0}-g27aot2te8-g27aot2te8.gz
+/home/john/code/LCB_Clone/LCB_Clone.Web/obj/Debug/net8.0/compressed/jxid2wbcrq-{0}-3sb70s2vg6-3sb70s2vg6.gz
+/home/john/code/LCB_Clone/LCB_Clone.Web/obj/Debug/net8.0/compressed/5gci6hvf4g-{0}-awxswsq3mb-awxswsq3mb.gz
+/home/john/code/LCB_Clone/LCB_Clone.Web/obj/Debug/net8.0/compressed/nuicisi6k6-{0}-39prj5jpmx-39prj5jpmx.gz
+/home/john/code/LCB_Clone/LCB_Clone.Web/obj/Debug/net8.0/compressed/ly5voftgr0-{0}-ycnqag6g66-ycnqag6g66.gz
+/home/john/code/LCB_Clone/LCB_Clone.Web/obj/Debug/net8.0/compressed/yso26gadpx-{0}-58n7y13k1q-58n7y13k1q.gz
