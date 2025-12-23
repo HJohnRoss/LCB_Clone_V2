@@ -1,5 +1,3 @@
-using LCB_Clone.Api.Infrastructure.Persistence.Entities;
-using LCB_Clone.Shared.Dtos;
 using Microsoft.EntityFrameworkCore;
 using LCB_Clone.Api.Infrastructure.Persistence;
 using LCB_Clone.Shared.Dtos.Legislators;
@@ -12,7 +10,7 @@ public sealed class GetLegislatorsHandler
 
     public GetLegislatorsHandler(AppDbContext db) => _db = db;
 
-    public async Task<IEnumerable<LegislatorResponse>> Handle()
+    public async Task<IEnumerable<LegislatorResponseDto>> Handle()
     {
         return await _db.Legislators
             .Select(l => l.ToResponse())

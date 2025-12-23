@@ -1,9 +1,10 @@
 [Blazor]
+	[This is Last prioity]
 	- Create Homepage for NELIS
 
-
 [API]
-	- [Currently doing] Figure Out what DTO's are and what they do exactly
+	[Highest Prio]
+	- [Currently doing] Setup LegislatorStringCategory
 	- Create a Session Model
 	- Create Bill Model
 	- Create Resolutions Model
@@ -12,19 +13,28 @@
 	- Create Committees Model
 	- Create Floor Sessions
 
-
-[Shared]
-	- Create the folowing models:
-		- Commitee
-		- Bills
-
+[Unit Testing]
+	[2nd Prio]
+	- Create a Test for creating a Legislator
+	- Create a Test for getting One Legislator
+	- Create a Test for getting all Legislators
+	- Create a Test for updating a Legislator
+	- Create a Test for deleting a Legislator
 
 [Desktop]
+	[Very Last prio]
 	- figure out what I want to make the app with
 		- Compatible with linux and windows
 
+
+[The Plan]
+	1. Setup the Nelis backend to the Leg website
+	2. Unit test everything after making a feature
+	3. slowly create html pages and worry about css later
+	4. apply css to the hmtl pages
 
 
 
 [Completed]
 	- Make the "/" route and make html/css for home page [completed]
+	- Figure Out what DTO's are and what they do exactly

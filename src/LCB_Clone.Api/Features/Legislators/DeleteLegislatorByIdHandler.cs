@@ -1,5 +1,3 @@
-using LCB_Clone.Api.Infrastructure.Persistence.Entities;
-using Microsoft.EntityFrameworkCore;
 using LCB_Clone.Api.Infrastructure.Persistence;
 
 namespace LCB_Clone.Api.Features.Legislators;

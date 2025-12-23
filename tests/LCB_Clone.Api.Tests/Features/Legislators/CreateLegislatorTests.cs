@@ -33,7 +33,7 @@ public class CreateLegislatorTests : IClassFixture<CustomWebApplicationFactory>
         response.StatusCode.Should().Be(HttpStatusCode.Created);
 
         var legislator =
-            await response.Content.ReadFromJsonAsync<LegislatorResponse>();
+            await response.Content.ReadFromJsonAsync<LegislatorResponseDto>();
 
         legislator!.FirstName.Should().Be("Jane");
     }

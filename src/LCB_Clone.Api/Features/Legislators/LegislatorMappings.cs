@@ -1,16 +1,14 @@
 using LCB_Clone.Api.Infrastructure.Persistence.Entities;
-using LCB_Clone.Shared.Dtos;
 using LCB_Clone.Shared.Dtos.Legislators;
-using LCB_Clone.Shared.Dtos.Socials;
 using LCB_Clone.Api.Features.Socials;
 
 namespace LCB_Clone.Api.Features.Legislators;
 
 public static class LegislatorMappings
 {
-    public static LegislatorResponse ToResponse(this Legislator legislator)
+    public static LegislatorResponseDto ToResponse(this Legislator legislator)
     {
-        return new LegislatorResponse(
+        return new LegislatorResponseDto(
             legislator.Id,
             legislator.FirstName,
             legislator.MiddleName,

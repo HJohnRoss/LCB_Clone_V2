@@ -15,24 +15,24 @@
 </ul>
 
 @code {
-    List<LegislatorResponse> legislators = new();
+    List<LegislatorResponseDto> legislators = new();
     string firstName = "";
 
     protected override async Task OnInitializedAsync()
     {
-        legislators = await Http.GetFromJsonAsync<List<LegislatorResponse>>("api/legislators") ?? new();
+        legislators = await Http.GetFromJsonAsync<List<LegislatorResponseDto>>("api/legislators") ?? new();
     }
 
     async Task AddLegislator()
     {
-        var newLeg = new LegislatorCreateDto
-        {
-            FirstName = firstName,
-        };
+        <!-- var newLeg = new LegislatorCreateDto -->
+        <!-- { -->
+        <!--     FirstName = firstName, -->
+        <!-- }; -->
 
-        await Http.PostAsJsonAsync("api/legislator", newLeg);
+        <!-- await Http.PostAsJsonAsync("api/legislator", newLeg); -->
 
-        legislators = await Http.GetFromJsonAsync<List<LegislatorResponse>>("api/legislators") ?? new();
+        legislators = await Http.GetFromJsonAsync<List<LegislatorResponseDto>>("api/legislators") ?? new();
         firstName = "";
     }
 }

@@ -2,7 +2,7 @@ using LCB_Clone.Shared.Dtos.Socials;
 
 namespace LCB_Clone.Shared.Dtos.Legislators;
 
-public record LegislatorResponse(
+public record LegislatorResponseDto(
     int Id,
     string FirstName,
     string? MiddleName,

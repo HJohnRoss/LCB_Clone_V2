@@ -12,7 +12,7 @@ public sealed class GetLegislatorByIdHandler
 
     public GetLegislatorByIdHandler(AppDbContext db) => _db = db;
 
-    public async Task<LegislatorResponse?> Handle(int id)
+    public async Task<LegislatorResponseDto?> Handle(int id)
     {
         var legislator = await _db.Legislators.FindAsync(id);
         return legislator?.ToResponse();

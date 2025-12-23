@@ -1,4 +1,3 @@
-using LCB_Clone.Api.Features.Legislators;
 using LCB_Clone.Shared.Dtos.Legislators;
 
 namespace LCB_Clone.Api.Features.Legislators;

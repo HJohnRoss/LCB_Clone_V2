@@ -9,6 +9,8 @@ builder.Services.AddPersistence(builder.Configuration);
 builder.Services.AddCorsPolicy();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// --- API Routes ---
 builder.Services.AddScoped<GetLegislatorsHandler>();
 builder.Services.AddScoped<GetLegislatorByIdHandler>();
 builder.Services.AddScoped<CreateLegislatorHandler>();
