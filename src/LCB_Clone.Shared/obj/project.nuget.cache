@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "fWvuPEqby9g=",
+  "success": true,
+  "projectFilePath": "/home/john/code/LCB_Clone/src/LCB_Clone.Shared/LCB_Clone.Shared.csproj",
+  "expectedPackageFiles": [
+    "/home/john/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.22/microsoft.aspnetcore.app.ref.8.0.22.nupkg.sha512"
+  ],
+  "logs": []
+}

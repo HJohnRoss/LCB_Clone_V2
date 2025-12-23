@@ -1,6 +1,0 @@
-@LCB_Clone.Api_HostAddress = http://localhost:5085
-
-GET {{LCB_Clone.Api_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

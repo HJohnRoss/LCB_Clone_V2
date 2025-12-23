@@ -1,0 +1,39 @@
+@page "/legislators"
+@using LCB_Clone.Shared.Dtos.Legislators
+@inject HttpClient Http
+
+<h3>Legislators</h3>
+
+<input @bind="firstName" />
+<button @onclick="AddLegislator">Add</button>
+
+<ul>
+@foreach (var legislator in legislators)
+{
+    <li>@legislator.FirstName</li>
+}
+</ul>
+
+@code {
+    List<LegislatorResponse> legislators = new();
+    string firstName = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        legislators = await Http.GetFromJsonAsync<List<LegislatorResponse>>("api/legislators") ?? new();
+    }
+
+    async Task AddLegislator()
+    {
+        var newLeg = new LegislatorCreateDto
+        {
+            FirstName = firstName,
+        };
+
+        await Http.PostAsJsonAsync("api/legislator", newLeg);
+
+        legislators = await Http.GetFromJsonAsync<List<LegislatorResponse>>("api/legislators") ?? new();
+        firstName = "";
+    }
+}
+
