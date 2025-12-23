@@ -1,22 +1,20 @@
-using LCB_Clone.Api;
-using Microsoft.AspNetCore.Mvc.Testing;
 using Xunit;
 
-public class LegislatorEndpointsTests : IClassFixture<WebApplicationFactory<Program>>
+public class LegislatorEndpointsTests
+    : IClassFixture<CustomWebApplicationFactory>
 {
-    private readonly WebApplicationFactory<Program> _factory;
+    private readonly HttpClient _client;
 
-    public LegislatorEndpointsTests(WebApplicationFactory<Program> factory)
+    public LegislatorEndpointsTests(CustomWebApplicationFactory factory)
     {
-        _factory = factory;
+        _client = factory.CreateClient();
     }
 
     [Fact]
     public async Task GetLegislators_ReturnsSuccess()
     {
-        var client = _factory.CreateClient();
-        var response = await client.GetAsync("/api/legislator");
-        Console.WriteLine(response);
+        var response = await _client.GetAsync("/api/legislators");
+
         response.EnsureSuccessStatusCode();
     }
 }

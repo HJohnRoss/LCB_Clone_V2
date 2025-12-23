@@ -1,12 +1,12 @@
 {
   "mainAssemblyName": "LCB_Clone.Web",
   "resources": {
-    "hash": "sha256-Xy9jHoO1j168spikWa92Ok05VJagILDq1crEF96G5Cg=",
+    "hash": "sha256-vGzHfXesqWf6+0tz0BsPDj6yKJSsDiBV1Dfr9by3JZI=",
     "jsModuleNative": {
-      "dotnet.native.js": "sha256-vtotCeXt2UD6oc459laJT32vBgigZ+eLoUmdeFkvYDk="
+      "dotnet.native.8.0.22.mqrlll98w2.js": "sha256-vtotCeXt2UD6oc459laJT32vBgigZ+eLoUmdeFkvYDk="
     },
     "jsModuleRuntime": {
-      "dotnet.runtime.js": "sha256-6bV/iAemowb59rmItegP8VsxwWpWUNyMb0Q76Fvvsjo="
+      "dotnet.runtime.8.0.22.x73iafhxbh.js": "sha256-6bV/iAemowb59rmItegP8VsxwWpWUNyMb0Q76Fvvsjo="
     },
     "wasmNative": {
       "dotnet.native.wasm": "sha256-I9mo79uNpf37/J/jYCGkW9F0w+mgb+ezeNdHNbQNvf0="
@@ -16,7 +16,6 @@
       "icudt_EFIGS.dat": "sha256-8fItetYY8kQ0ww6oxwTLiT3oXlBwHKumbeP2pRF4yTc=",
       "icudt_no_CJK.dat": "sha256-L7sV7NEYP37/Qr2FPCePo5cJqRgTXRwGHuwF5Q+0Nfs="
     },
-    "coreAssembly": {},
     "assembly": {
       "Microsoft.AspNetCore.Authorization.wasm": "sha256-XiUUs33CdZCkYKtpj8YZINjN7OFZ2CNxfz+BsMsGpgw=",
       "Microsoft.AspNetCore.Components.wasm": "sha256-3GL4UpMWSN6UgMyPPak2FdjbSYOFoCAA1XIKZHwcd6U=",
@@ -209,12 +208,12 @@
       "mscorlib.wasm": "sha256-K9gNrsN9UmPqLs6J/FrkiKpmkVGnHjjqUsc7YGvesCY=",
       "netstandard.wasm": "sha256-4emjlXLM9qW3t2tlII20SDylBgG4ueI0wy9nh5FMd8g=",
       "System.Private.CoreLib.wasm": "sha256-2DN4v7I/tabltDEPdIO8sDBB0tY8zOm+0CvHbMssXW4=",
-      "LCB_Clone.Shared.wasm": "sha256-6QWM2CTQbF51DiLJzhSyVtFXerFNjS+UbkmoPSlQIHk=",
-      "LCB_Clone.Web.wasm": "sha256-DVeuivGgHVOBWeKEP8hyvqtINrGPSW50yT+KUd7nORU="
+      "LCB_Clone.Shared.wasm": "sha256-qL8CAIdAztTDH/XgatTlDgjOD9VklgYIKYDofcziQBc=",
+      "LCB_Clone.Web.wasm": "sha256-beeaX5gtij1TRWyfPkHxqTRKvQlUDRsKAwazakekZuQ="
     },
     "pdb": {
-      "LCB_Clone.Shared.pdb": "sha256-KuvO91lXwIjp6/TDGCmcENZSAqVo+0mDwvmpVeuYEBs=",
-      "LCB_Clone.Web.pdb": "sha256-uzxTv/jpZbb8wWSovGQSyQzLUu3vjRol7d9vAvWlcwk="
+      "LCB_Clone.Shared.pdb": "sha256-+GVeLMFccr10DLMFcpilfUot4fQRbDYUYbetcDrPN8Y=",
+      "LCB_Clone.Web.pdb": "sha256-mvXMpAY83Cn0zScpOPuw7bwLK9fBkdWFS/3FqlYeHD4="
     }
   },
   "cacheBootResources": true,

@@ -1,1 +1,11 @@
-{"Version":1,"Hash":"UbGRAz1pq6HYR6AmlzEM31phRp9LWJ738IYDhixAcWs=","Source":"LCB_Clone.Api","BasePath":"/","Mode":"Root","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}
+{
+  "Version": 1,
+  "Hash": "o3HN/9D2Nf9ZhjQF/K89P8MWUGRR+gGEnJliARnhe5w=",
+  "Source": "LCB_Clone.Api",
+  "BasePath": "_content/LCB_Clone.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

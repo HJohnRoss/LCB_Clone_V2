@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LCB_Clone.Shared")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+05f2544a69e290a47401a0c8fe420eb9a3145b83")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0c70e25f0f6036400faa1843f28e523250d1a537")]
 [assembly: System.Reflection.AssemblyProductAttribute("LCB_Clone.Shared")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LCB_Clone.Shared")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
