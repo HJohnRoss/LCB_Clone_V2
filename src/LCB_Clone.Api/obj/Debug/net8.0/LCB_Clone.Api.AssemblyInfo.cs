@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LCB_Clone.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+780eb76a7da98d82afe786a5721e18ecc9e987c7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fa398856dcaf2e44534fb66f8d3e30a32adb28bc")]
 [assembly: System.Reflection.AssemblyProductAttribute("LCB_Clone.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LCB_Clone.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
