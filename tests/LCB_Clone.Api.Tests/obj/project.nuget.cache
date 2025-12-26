@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "JQYY2A+N++MivkIAQKczWpencyM8xetZ9KRKkzIQo2yhABLFUmdv6g5P1KBfYtDIydGmHTIy2s4olo6x904rqQ==",
+  "dgSpecHash": "m+D0XG3bFPA=",
   "success": true,
   "projectFilePath": "/home/john/code/LCB_Clone/tests/LCB_Clone.Api.Tests/LCB_Clone.Api.Tests.csproj",
   "expectedPackageFiles": [

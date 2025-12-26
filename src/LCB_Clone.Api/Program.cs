@@ -2,7 +2,7 @@ using LCB_Clone.Api.Features.Legislators;
 using LCB_Clone.Api.Infrastructure.Extensions;
 using LCB_Clone.Api.Infrastructure.Persistence;
 
-var builder = WebApplication.CreateBuilder(args);
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // --- Services ---
 builder.Services.AddPersistence(builder.Configuration);
@@ -17,7 +17,7 @@ builder.Services.AddScoped<CreateLegislatorHandler>();
 builder.Services.AddScoped<DeleteLegislatorByIdHandler>();
 
 // --- Build App ---
-var app = builder.Build();
+WebApplication app = builder.Build();
 
 // --- Middleware ---
 app.UseCorsPolicy();
