@@ -9,10 +9,12 @@ public class LegislatorStrings
 	public required int Id { get; set; }
 
 	[Required]
-	public required string Text { get; set; } = null!;
+	public required string Text { get; set; }
 	[Required]
 	public required LegislatorStringType Type { get; set; }
 
-	public int LegislatorId { get; set; }
-	public Legislator Legislator { get; set; } = null!;
+	[Required]
+	public required int LegislatorId { get; set; }
+	[Required]
+	public required Legislator Legislator { get; set; }
 }

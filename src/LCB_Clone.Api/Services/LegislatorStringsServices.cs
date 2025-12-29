@@ -6,6 +6,7 @@ namespace LCB_Clone.Api.Services;
 
 public class LegislatorStringsServices(AppDbContext db) : ILegislatorStringsServices
 {
+	// Database Access
 	private readonly AppDbContext _db = db;
 
 	public List<LegislatorStringsResponseDto> GetAll()

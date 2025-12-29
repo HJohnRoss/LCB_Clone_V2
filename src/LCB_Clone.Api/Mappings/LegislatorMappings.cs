@@ -3,8 +3,13 @@ using LCB_Clone.Shared.Dtos.Legislators;
 
 namespace LCB_Clone.Api.Mappings;
 
+// 	public static LegislatorResponseDto ToResponse(this Legislator legislator)
+// 	"this" keyword is making the function an extension method of the Legislator class.
+
+// Extention Utility Class for Legislators
 public static class LegislatorMappings
 {
+	// Converts a Legislator into a LegislatorResponseDto
 	public static LegislatorResponseDto ToResponse(this Legislator legislator)
 	{
 		if (legislator == null)
@@ -33,7 +38,6 @@ public static class LegislatorMappings
 		// NOTE: For required feilds you have to either specify to the constructor what feild is the what
 		// or you can put [SetsRequiredMembers] on the function to tell the compiler this is ok.
 		// However I dont know how safe it is to use the [SetsRequiredMembers].
-
 		return new LegislatorCreateDto(
 				legislator.FirstName,
 				legislator.MiddleName,
@@ -47,6 +51,7 @@ public static class LegislatorMappings
 				legislator.TermEndYear
 				)
 		{
+			// Specifying the [Required] class property's
 			FirstName = legislator.FirstName,
 			LastName = legislator.LastName,
 			Party = legislator.Party,
@@ -72,6 +77,7 @@ public static class LegislatorMappings
 				legislator.TermEndYear
 				)
 		{
+			// Specifying the [Required] class property's
 			Id = legislator.Id
 		};
 	}

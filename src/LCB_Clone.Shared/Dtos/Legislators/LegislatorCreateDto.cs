@@ -1,3 +1,4 @@
+using LCB_Clone.Shared.Dtos.Socials;
 using System.ComponentModel.DataAnnotations;
 
 namespace LCB_Clone.Shared.Dtos.Legislators;

@@ -5,9 +5,12 @@ public static class MiddlewareExtensions
 	// CORS registration
 	public static IServiceCollection AddCorsPolicy(this IServiceCollection services)
 	{
+		// Allows Client connectivity to API
 		services.AddCors(options =>
 		{
 			options.AddDefaultPolicy(policy =>
+				// Allows any address/endpoint to access the API
+				// WARNING: Change this for production
 				policy.AllowAnyOrigin()
 					  .AllowAnyHeader()
 					  .AllowAnyMethod());

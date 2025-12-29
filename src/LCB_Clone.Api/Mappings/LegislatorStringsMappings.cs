@@ -3,6 +3,7 @@ using LCB_Clone.Shared.Dtos.LegislatorStrings;
 
 namespace LCB_Clone.Api.Mappings;
 
+// Extention Utility class for LegislatorStringsMappings
 public static class LegislatorStringsMappings
 {
 	public static LegislatorStringsResponseDto ToResponse(this LegislatorStrings legislatorStrings)

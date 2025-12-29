@@ -3,6 +3,7 @@ using LCB_Clone.Shared.Dtos.Socials;
 
 namespace LCB_Clone.Api.Mappings;
 
+// Extention Utility Class for Socials
 public static class SocialMappings
 {
 	public static SocialResponseDto ToResponse(this Social social)

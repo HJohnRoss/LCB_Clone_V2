@@ -11,14 +11,49 @@ public class LegislatorsController(ILegislatorService legislatorService) : Contr
 	private readonly ILegislatorService _legislatorService = legislatorService;
 
 	[HttpGet]
-	public async Task<ActionResult<LegislatorResponseDto>> GetAll()
+	public async Task<ActionResult<List<LegislatorResponseDto>>> GetAll()
 	{
+		// Creates DTO Response
 		List<LegislatorResponseDto> legislators = await _legislatorService.GetAll();
+		// Checks if there wasnt a response
 		if (legislators == null)
 		{
+			// TODO: Error Handling
 			return NotFound(legislators);
 		}
 
+		// Sends an 200 response with the object
 		return Ok(legislators);
+	}
+
+	[HttpGet("/{id}")]
+	public async Task<ActionResult<LegislatorResponseDto>> GetOne(int id)
+	{
+		// Creates DTO Reponse
+		LegislatorResponseDto? legislator = await _legislatorService.GetOne(id);
+
+		// Checks if theres a response
+		if (legislator == null)
+		{
+			// TODO: Error Handling
+			return BadRequest(legislator);
+		}
+
+		// Sends an 200 response with the object
+		return Ok(legislator);
+	}
+
+	[HttpPost]
+	public async Task<ActionResult<LegislatorResponseDto>> Create(LegislatorCreateDto dto)
+	{
+		// Creates DTO Response
+		LegislatorResponseDto? legislator = await _legislatorService.Create(dto);
+		if (legislator == null)
+		{
+			// TODO: Error Handling
+			return BadRequest(legislator);
+		}
+		// Sends an 200 response with the object
+		return Ok(legislator);
 	}
 }

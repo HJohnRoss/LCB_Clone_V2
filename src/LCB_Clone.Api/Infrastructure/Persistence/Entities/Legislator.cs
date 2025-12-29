@@ -4,8 +4,36 @@ namespace LCB_Clone.Api.Infrastructure.Persistence.Entities;
 
 public class Legislator
 {
-	[Required]
-	public required int Id { get; set; }
+	// Private Constructor for EF
+	// WARN: Look up on why i need this
+	private Legislator() { }
+
+	public Legislator(
+		string firstName,
+		string? middleName,
+		string lastName,
+		string party,
+		int county,
+		string email,
+		int? lvOffice,
+		int? ccOffice,
+		string? ccPhone,
+		int termEndYear
+	)
+	{
+		FirstName = firstName;
+		MiddleName = middleName;
+		LastName = lastName;
+		Party = party;
+		County = county;
+		Email = email;
+
+		LVOffice = lvOffice;
+		CCOffice = ccOffice;
+		CCPhone = ccPhone;
+		TermEndYear = termEndYear;
+	}
+	public int Id { get; set; }
 
 	[Required]
 	public required string FirstName { get; set; }
