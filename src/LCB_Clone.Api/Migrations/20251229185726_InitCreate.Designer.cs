@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LCB_Clone.Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251223044310_AddTermEndYearToLegislator")]
-    partial class AddTermEndYearToLegislator
+    [Migration("20251229185726_InitCreate")]
+    partial class InitCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,9 +39,8 @@ namespace LCB_Clone.Api.Migrations
                     b.Property<string>("CCPhone")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("County")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<int>("County")
+                        .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -73,6 +72,31 @@ namespace LCB_Clone.Api.Migrations
                     b.ToTable("Legislators");
                 });
 
+            modelBuilder.Entity("LCB_Clone.Api.Infrastructure.Persistence.Entities.LegislatorStrings", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("LegislatorId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LegislatorId");
+
+                    b.ToTable("LegislatorStrings");
+                });
+
             modelBuilder.Entity("LCB_Clone.Api.Infrastructure.Persistence.Entities.Social", b =>
                 {
                     b.Property<int>("Id")
@@ -99,6 +123,17 @@ namespace LCB_Clone.Api.Migrations
                     b.ToTable("Socials");
                 });
 
+            modelBuilder.Entity("LCB_Clone.Api.Infrastructure.Persistence.Entities.LegislatorStrings", b =>
+                {
+                    b.HasOne("LCB_Clone.Api.Infrastructure.Persistence.Entities.Legislator", "Legislator")
+                        .WithMany("LegislatorStrings")
+                        .HasForeignKey("LegislatorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Legislator");
+                });
+
             modelBuilder.Entity("LCB_Clone.Api.Infrastructure.Persistence.Entities.Social", b =>
                 {
                     b.HasOne("LCB_Clone.Api.Infrastructure.Persistence.Entities.Legislator", "Legislator")
@@ -112,6 +147,8 @@ namespace LCB_Clone.Api.Migrations
 
             modelBuilder.Entity("LCB_Clone.Api.Infrastructure.Persistence.Entities.Legislator", b =>
                 {
+                    b.Navigation("LegislatorStrings");
+
                     b.Navigation("Socials");
                 });
 #pragma warning restore 612, 618

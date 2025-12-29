@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace LCB_Clone.Api.Migrations
 {
     /// <inheritdoc />
-    public partial class AddTermEndYearToLegislator : Migration
+    public partial class InitCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -28,8 +28,7 @@ namespace LCB_Clone.Api.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Party = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    County = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    County = table.Column<int>(type: "int", nullable: false),
                     Email = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     LVOffice = table.Column<int>(type: "int", nullable: true),
@@ -41,6 +40,29 @@ namespace LCB_Clone.Api.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Legislators", x => x.Id);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "LegislatorStrings",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Text = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Type = table.Column<int>(type: "int", nullable: false),
+                    LegislatorId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LegislatorStrings", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_LegislatorStrings_Legislators_LegislatorId",
+                        column: x => x.LegislatorId,
+                        principalTable: "Legislators",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -69,6 +91,11 @@ namespace LCB_Clone.Api.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateIndex(
+                name: "IX_LegislatorStrings_LegislatorId",
+                table: "LegislatorStrings",
+                column: "LegislatorId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Socials_LegislatorId",
                 table: "Socials",
                 column: "LegislatorId");
@@ -77,6 +104,9 @@ namespace LCB_Clone.Api.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "LegislatorStrings");
+
             migrationBuilder.DropTable(
                 name: "Socials");
 

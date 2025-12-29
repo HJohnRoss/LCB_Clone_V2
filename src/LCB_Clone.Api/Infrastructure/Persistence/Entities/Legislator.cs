@@ -1,24 +1,32 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace LCB_Clone.Api.Infrastructure.Persistence.Entities;
 
 public class Legislator
 {
-	public int Id { get; set; }
+	[Required]
+	public required int Id { get; set; }
 
-	public string FirstName { get; set; } = string.Empty;
+	[Required]
+	public required string FirstName { get; set; }
 	public string? MiddleName { get; set; }
-	public string LastName { get; set; } = string.Empty;
-	public string Party { get; set; } = string.Empty;
-	public string County { get; set; } = string.Empty;
-	public string Email { get; set; } = string.Empty;
+	[Required]
+	public required string LastName { get; set; }
+	[Required]
+	public required string Party { get; set; }
+	[Required]
+	public required int County { get; set; }
+	[Required]
+	public required string Email { get; set; }
 
 	public int? LVOffice { get; set; }
 	public int? CCOffice { get; set; }
 	public string? CCPhone { get; set; }
 	public int TermEndYear { get; set; }
 
-	public List<Social>? Socials { get; set; }
+	public List<Social> Socials { get; set; } = new();
 
-	public List<LegislatorStrings> CareerPersonal { get; set; } = new List<LegislatorStrings>();
+	public List<LegislatorStrings> LegislatorStrings { get; set; } = new();
 
 	// update after creating models
 	// public List<string> CommiteesServing = new List<string>();
