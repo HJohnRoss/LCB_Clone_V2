@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace LCB_Clone.Api.Controllers;
 
 [ApiController]
-[Route("api[controller]")]
+[Route("api/[controller]")]
 public class LegislatorsController(ILegislatorService legislatorService) : ControllerBase
 {
 	private readonly ILegislatorService _legislatorService = legislatorService;
