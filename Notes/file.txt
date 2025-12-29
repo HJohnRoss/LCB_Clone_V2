@@ -1,0 +1,121 @@
+LCB_Clone/
+├── .config/
+├── .git/
+├── .gitignore
+├── LCB_Clone.sln
+├── README.md
+├── Todo.txt
+│
+├── src/
+│   ├── LCB_Clone.Api/
+│   │   ├── Features/
+│   │   │   ├── Users/
+│   │   │   │   ├── UserEndpoints.cs
+│   │   │   │   ├── CreateUser.cs
+│   │   │   │   ├── GetUser.cs
+│   │   │   │   ├── UserMappings.cs
+│   │   │   │   │
+│   │   │   ├── Legislators/
+│   │   │   │   ├── LegislatorEndpoints.cs
+│   │   │   │   ├── CreateLegislator.cs
+│   │   │   │   ├── GetLegislator.cs
+│   │   │   │   ├── LegislatorMappings.cs
+│   │   │
+│   │   ├── Infrastructure/
+│   │   │   ├── Persistence/
+│   │   │   │   ├── AppDbContext.cs
+│   │   │   │   ├── Entities/
+│   │   │   │   │   ├── User.cs
+│   │   │   │   │   ├── Legislator.cs
+│   │   │   │   │
+│   │   │   │   ├── Configurations/
+│   │   │   │   │   ├── UserConfiguration.cs
+│   │   │   │   │   ├── LegislatorConfiguration.cs
+│   │   │   │   │
+│   │   │   │   ├── Migrations/
+│   │   │   │   │   └── 20250101010101_Initial.cs
+│   │   │
+│   │   │   ├── Middleware/
+│   │   │   │   ├── ExceptionHandlingMiddleware.cs
+│   │   │
+│   │   │   ├── Extensions/
+│   │   │   │   ├── PersistenceExtensions.cs
+│   │   │   │   ├── MiddlewareExtensions.cs
+│   │   │
+│   │   ├── Common/
+│   │   │   ├── Results/
+│   │   │   │   ├── Result.cs
+│   │   │   ├── Errors/
+│   │   │   │   ├── Error.cs
+│   │   │
+│   │   ├── Extensions/
+│   │   │   ├── FeatureExtensions.cs
+│   │   │
+│   │   ├── Properties/
+│   │   │   └── launchSettings.json
+│   │   │
+│   │   ├── Program.cs
+│   │   ├── appsettings.json
+│   │   ├── appsettings.Development.json
+│   │   └── LCB_Clone.Api.csproj
+│   │
+│   ├── LCB_Clone.Shared/
+│   │   ├── DTOs/
+│   │   │   ├── Users/
+│   │   │   │   ├── CreateUserRequest.cs
+│   │   │   │   ├── UserResponse.cs
+│   │   │   │
+│   │   │   ├── Legislators/
+│   │   │   │   ├── CreateLegislatorRequest.cs
+│   │   │   │   ├── LegislatorResponse.cs
+│   │   │
+│   │   ├── Constants/
+│   │   │   ├── ApiRoutes.cs
+│   │   │
+│   │   ├── Enums/
+│   │   │   ├── UserRole.cs
+│   │   │
+│   │   └── LCB_Clone.Shared.csproj
+│   │
+│   ├── LCB_Clone.Web/
+│   │   ├── Components/
+│   │   │   ├── Shared/
+│   │   │   │   ├── NavMenu.razor
+│   │   │   │   ├── Footer.razor
+│   │   │
+│   │   ├── Pages/
+│   │   │   ├── Users/
+│   │   │   │   ├── UserList.razor
+│   │   │   │   ├── UserDetails.razor
+│   │   │   │
+│   │   │   ├── Legislators/
+│   │   │   │   ├── LegislatorList.razor
+│   │   │
+│   │   ├── Services/
+│   │   │   ├── UserApiClient.cs
+│   │   │   ├── LegislatorApiClient.cs
+│   │   │
+│   │   ├── Layout/
+│   │   │   ├── MainLayout.razor
+│   │   │
+│   │   ├── wwwroot/
+│   │   │   ├── css/
+│   │   │   ├── js/
+│   │   │
+│   │   ├── App.razor
+│   │   ├── Program.cs
+│   │   ├── appsettings.json
+│   │   ├── appsettings.Development.json
+│   │   └── LCB_Clone.Web.csproj
+│   │
+├── tests/
+│   ├── LCB_Clone.Api.Tests/
+│   │   ├── Users/
+│   │   │   ├── CreateUserTests.cs
+│   │   │   ├── GetUserTests.cs
+│   │   │
+│   │   ├── Legislators/
+│   │   │   ├── CreateLegislatorTests.cs
+│   │   │
+│   │   ├── TestBase.cs
+│   │   ├── LCB_Clone.Api.Tests.csproj
