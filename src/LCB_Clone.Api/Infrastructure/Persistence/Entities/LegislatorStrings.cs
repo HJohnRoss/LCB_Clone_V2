@@ -3,7 +3,7 @@ using LCB_Clone.Shared.Enums.Legislators;
 
 namespace LCB_Clone.Api.Infrastructure.Persistence.Entities;
 
-public class LegislatorStrings
+public class LegislatorString
 {
 	[Required]
 	public required int Id { get; set; }
@@ -15,6 +15,5 @@ public class LegislatorStrings
 
 	[Required]
 	public required int LegislatorId { get; set; }
-	[Required]
 	public required Legislator Legislator { get; set; }
 }

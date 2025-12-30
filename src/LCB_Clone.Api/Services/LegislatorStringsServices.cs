@@ -1,6 +1,6 @@
 using LCB_Clone.Api.Infrastructure.Persistence;
 using LCB_Clone.Api.Infrastructure.Persistence.Entities;
-using LCB_Clone.Api.Mappings;
+using LCB_Clone.Api.Mappings.LegislatorStrings;
 using LCB_Clone.Api.Services.Interfaces;
 using LCB_Clone.Shared.Dtos.LegislatorStrings;
 using Microsoft.EntityFrameworkCore;

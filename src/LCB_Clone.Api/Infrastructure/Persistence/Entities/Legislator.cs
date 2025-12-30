@@ -54,7 +54,7 @@ public class Legislator
 
 	public List<Social> Socials { get; set; } = new();
 
-	public List<LegislatorStrings> LegislatorStrings { get; set; } = new();
+	public List<LegislatorString> LegislatorStrings { get; set; } = new();
 
 	// update after creating models
 	// public List<string> CommiteesServing = new List<string>();

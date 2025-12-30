@@ -1,5 +1,7 @@
 using LCB_Clone.Api.Infrastructure.Persistence.Entities;
 using LCB_Clone.Shared.Dtos.Legislators;
+using LCB_Clone.Api.Mappings.Socials;
+using LCB_Clone.Api.Mappings.LegislatorStrings;
 
 namespace LCB_Clone.Api.Mappings.Legislators;
 
@@ -13,6 +15,7 @@ public static class ResponseDtoMappings
 		}
 
 		return new LegislatorResponseDto(
+				legislator.Id,
 				legislator.FirstName,
 				legislator.MiddleName,
 				legislator.LastName,
