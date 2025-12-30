@@ -14,6 +14,7 @@ builder.Services.AddControllers();
 
 // Add Services
 builder.Services.AddScoped<ILegislatorService, LegislatorService>();
+builder.Services.AddScoped<ILegislatorStringsServices, LegislatorStringsServices>();
 
 // --- Services ---
 builder.Services.AddPersistence(builder.Configuration);

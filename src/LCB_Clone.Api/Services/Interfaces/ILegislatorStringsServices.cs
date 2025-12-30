@@ -4,5 +4,6 @@ namespace LCB_Clone.Api.Services.Interfaces;
 
 public interface ILegislatorStringsServices
 {
-	List<LegislatorStringsResponseDto> GetAll();
+	Task<List<LegislatorStringsResponseDto>> GetAll();
+	// Task<LegislatorStringsResponseDto> Create(LegislatorStringsCreateDto dto);
 }
