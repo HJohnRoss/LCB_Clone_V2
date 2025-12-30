@@ -68,4 +68,16 @@ public class LegislatorsController(ILegislatorService legislatorService) : Contr
 
 		return Ok("Legislator Deleted");
 	}
+
+	[HttpPut]
+	public async Task<ActionResult<LegislatorResponseDto?>> Update(LegislatorUpdateDto dto)
+	{
+		LegislatorResponseDto? legislator = await _legislatorService.Update(dto);
+		if (legislator == null)
+		{
+			return BadRequest(legislator);
+		}
+
+		return Ok(legislator);
+	}
 }

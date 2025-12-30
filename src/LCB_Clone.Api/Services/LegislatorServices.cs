@@ -94,4 +94,24 @@ public class LegislatorService(AppDbContext db) : ILegislatorService
 
 		return true;
 	}
+
+	public async Task<LegislatorResponseDto?> Update(LegislatorUpdateDto dto)
+	{
+		Legislator? legislator = await _db.Legislators
+			.FirstOrDefaultAsync(l => l.Id == dto.Id);
+		// NOTE: .AsNoTracking() makes it so EF does not track the object
+		// However Here I dont use it so im able to manipulate the legislator object
+		// then run _db.SaveChangesAsync() to generate the UPDATE query from the changed legislator object
+
+		if (legislator == null)
+		{
+			return null;
+		}
+
+		dto.ApplyUpdate(legislator);
+
+		await _db.SaveChangesAsync();
+
+		return legislator.ToResponse();
+	}
 }

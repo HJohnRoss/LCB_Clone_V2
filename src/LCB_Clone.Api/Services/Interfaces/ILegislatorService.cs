@@ -8,4 +8,5 @@ public interface ILegislatorService
 	Task<LegislatorResponseDto?> GetOne(int id);
 	Task<LegislatorResponseDto?> Create(LegislatorCreateDto dto);
 	Task<bool> Delete(int id);
+	Task<LegislatorResponseDto?> Update(LegislatorUpdateDto dto);
 }
