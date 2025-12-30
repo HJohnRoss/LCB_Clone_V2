@@ -56,4 +56,16 @@ public class LegislatorsController(ILegislatorService legislatorService) : Contr
 		// Sends an 200 response with the object
 		return Ok(legislator);
 	}
+
+	[HttpDelete("{id}")]
+	public async Task<ActionResult> Delete(int id)
+	{
+		bool validRequest = await _legislatorService.Delete(id);
+		if (!validRequest)
+		{
+			return BadRequest("Legislator not found");
+		}
+
+		return Ok("Legislator Deleted");
+	}
 }

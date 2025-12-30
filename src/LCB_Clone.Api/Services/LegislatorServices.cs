@@ -3,6 +3,7 @@ using LCB_Clone.Api.Infrastructure.Persistence.Entities;
 using LCB_Clone.Api.Mappings;
 using LCB_Clone.Api.Services.Interfaces;
 using LCB_Clone.Shared.Dtos.Legislators;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 
 namespace LCB_Clone.Api.Services;
@@ -76,5 +77,21 @@ public class LegislatorService(AppDbContext db) : ILegislatorService
 
 		// Converts the legislator object into a LegislatorResponseDto and returns it.
 		return legislator.ToResponse();
+	}
+
+	public async Task<bool> Delete(int id)
+	{
+		Legislator? legislator = await _db.Legislators
+			.FirstOrDefaultAsync(l => l.Id == id);
+
+		if (legislator == null)
+		{
+			return false;
+		}
+
+		_db.Legislators.Remove(legislator);
+		await _db.SaveChangesAsync();
+
+		return true;
 	}
 }
