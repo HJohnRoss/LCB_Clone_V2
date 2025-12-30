@@ -22,13 +22,31 @@ public class LegislatorStringsServices(AppDbContext db) : ILegislatorStringsServ
 		return legislatorStrings;
 	}
 
-	// public async Task<LegislatorStringsResponseDto> Create(LegislatorStringsCreateDto dto)
-	// {
-	// 	LegislatorStrings legislatorString = new(
-	// 			dto.Text,
-	// 			dto.Type,
-	// 			dto.LegislatorId
-	// 			);
-	// }
+	public async Task<LegislatorStringsResponseDto?> GetOne(int id)
+	{
+		LegislatorStringsResponseDto? legislatorString = await _db.LegislatorStrings
+			.AsNoTracking()
+			.Where(ls => ls.Id == id)
+			.Select(ls => ls.ToResponse())
+			.FirstOrDefaultAsync();
+
+		if (legislatorString == null)
+		{
+			return null;
+		}
+
+		return legislatorString;
+	}
+
+
+	public async Task<LegislatorStringsResponseDto> Create(LegislatorStringsCreateDto dto)
+	{
+		LegislatorString legislatorString = dto.ToCreate();
+
+		await _db.LegislatorStrings.AddAsync(legislatorString);
+		await _db.SaveChangesAsync();
+
+		return legislatorString.ToResponse();
+	}
 
 }

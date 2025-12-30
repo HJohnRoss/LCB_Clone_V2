@@ -1,4 +1,5 @@
 using LCB_Clone.Api.Infrastructure.Persistence.Entities;
+using LCB_Clone.Api.Mappings.Legislators;
 using LCB_Clone.Shared.Dtos.LegislatorStrings;
 
 namespace LCB_Clone.Api.Mappings.LegislatorStrings;
@@ -14,8 +15,11 @@ public static class ResponseDtoMappings
 		}
 
 		return new LegislatorStringsResponseDto(
+				legislatorStrings.Id,
 				legislatorStrings.Text,
-				legislatorStrings.Type
+				legislatorStrings.Type,
+				LegislatorId: legislatorStrings.LegislatorId,
+				Legislator: legislatorStrings.Legislator?.ToResponse()
 				);
 	}
 }

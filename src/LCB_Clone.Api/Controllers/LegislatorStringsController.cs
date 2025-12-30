@@ -9,6 +9,7 @@ namespace LCB_Clone.Api.Controllers;
 public class LegislatorStringsController(ILegislatorStringsServices legislatorStringsServices) : ControllerBase
 {
 	private readonly ILegislatorStringsServices _legislatorStringsServices = legislatorStringsServices;
+
 	[HttpGet]
 	public async Task<ActionResult<List<LegislatorStringsResponseDto>>> GetAll()
 	{
@@ -22,4 +23,29 @@ public class LegislatorStringsController(ILegislatorStringsServices legislatorSt
 		return Ok(legislatorStrings);
 	}
 
+	[HttpGet("{id:int}")]
+	public async Task<ActionResult<LegislatorStringsResponseDto>> GetOne(int id)
+	{
+		LegislatorStringsResponseDto? legislatorString = await _legislatorStringsServices.GetOne(id);
+
+		if (legislatorString == null)
+		{
+			return NotFound(legislatorString);
+		}
+
+		return Ok(legislatorString);
+	}
+
+	[HttpPost]
+	public async Task<ActionResult<LegislatorStringsResponseDto>> Create(LegislatorStringsCreateDto dto)
+	{
+		LegislatorStringsResponseDto legislatorString = await _legislatorStringsServices.Create(dto);
+
+		if (legislatorString == null)
+		{
+			return BadRequest(legislatorString);
+		}
+
+		return Ok(legislatorString);
+	}
 }

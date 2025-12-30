@@ -14,6 +14,7 @@ public static class ResponseDtoMappings
 		}
 
 		return new SocialResponseDto(
+				social.Id,
 				social.Icon,
 				social.WebsiteLink
 				);
