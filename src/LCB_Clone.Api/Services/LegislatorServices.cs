@@ -63,7 +63,32 @@ public class LegislatorService(AppDbContext db) : ILegislatorService
 			.Where(l => l.Id == id)
 			// Sql: Select * from Legislators
 			// l.ToResponse() = converts a Legislator object to LegislatorResponseDto
-			.Select(l => l.ToResponse())
+			.Select(l => new LegislatorResponseDto(
+
+				l.Id,
+				l.FirstName,
+				l.MiddleName,
+				l.LastName,
+				l.Party,
+				l.County,
+				l.Email,
+				l.LVOffice,
+				l.CCOffice,
+				l.CCPhone,
+				l.TermEndYear,
+				l.Socials.Select(s => new SocialResponseDto(
+					s.Id,
+					s.Icon,
+					s.WebsiteLink
+				)).ToList(),
+				l.LegislatorStrings.Select(ls => new LegislatorStringsResponseDto(
+					ls.Id,
+					ls.Text,
+					ls.Type,
+					ls.LegislatorId,
+					null
+				)).ToList()
+			))
 			// Takes the query output and gives a LegislatorResponseDto?
 			.FirstOrDefaultAsync();
 

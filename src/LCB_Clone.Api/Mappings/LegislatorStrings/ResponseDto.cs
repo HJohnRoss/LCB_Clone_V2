@@ -14,9 +14,7 @@ public static class ResponseDtoMappings
 			return null!;
 		}
 
-		return new LegislatorStringsResponseDto(
-				legislatorStrings.Id,
-				legislatorStrings.Text,
+		return new LegislatorStringsResponseDto(legislatorStrings.Id, legislatorStrings.Text,
 				legislatorStrings.Type,
 				LegislatorId: legislatorStrings.LegislatorId,
 				Legislator: legislatorStrings.Legislator?.ToResponse()
