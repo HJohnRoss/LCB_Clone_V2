@@ -21,8 +21,8 @@ public class LegislatorStringsController(ILegislatorStringsServices legislatorSt
 		return Ok(legislatorStrings);
 	}
 
-	[HttpGet("{id:int}")]
-	public async Task<ActionResult<LegislatorStringsResponseDto>> GetOne(int id)
+	[HttpGet("{id:ulong}")]
+	public async Task<ActionResult<LegislatorStringsResponseDto>> GetOne(ulong id)
 	{
 		LegislatorStringsResponseDto? legislatorString = await _legislatorStringsServices.GetOne(id);
 
@@ -43,8 +43,8 @@ public class LegislatorStringsController(ILegislatorStringsServices legislatorSt
 		return Ok(legislatorString);
 	}
 
-	[HttpDelete]
-	public async Task<ActionResult<bool>> Delete(int id)
+	[HttpDelete("{id:ulong}")]
+	public async Task<ActionResult<bool>> Delete(ulong id)
 	{
 		bool isDeleted = await _legislatorStringsServices.Delete(id);
 

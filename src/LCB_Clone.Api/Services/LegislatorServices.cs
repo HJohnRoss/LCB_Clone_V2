@@ -53,7 +53,7 @@ public class LegislatorService(AppDbContext db) : ILegislatorService
 
 	// Legislator Get One
 	// @params (int id)
-	public async Task<LegislatorResponseDto?> GetOne(int id)
+	public async Task<LegislatorResponseDto?> GetOne(ulong id)
 	{
 		LegislatorResponseDto? legislator = await _db.Legislators
 			.AsNoTracking()
@@ -121,7 +121,7 @@ public class LegislatorService(AppDbContext db) : ILegislatorService
 		return legislator.ToResponse();
 	}
 
-	public async Task<bool> Delete(int id)
+	public async Task<bool> Delete(ulong id)
 	{
 		return await _db.Legislators.Where(l => l.Id == id).ExecuteDeleteAsync() > 0;
 	}

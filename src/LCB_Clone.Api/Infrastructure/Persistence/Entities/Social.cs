@@ -7,13 +7,14 @@ public class Social
 	public int Id { get; set; }
 
 	[Required]
-	public required string Icon { get; set; } = string.Empty;
+	public string Icon { get; set; } = null!;
 	[Required]
-	public required string WebsiteLink { get; set; } = string.Empty;
+	public string WebsiteLink { get; set; } = null!;
 
 	[Required]
-	public required int LegislatorId { get; set; }
-	public Legislator Legislator { get; set; }
+	public int LegislatorId { get; set; }
+	[Required]
+	public Legislator Legislator { get; set; } = null!;
 
 	public Social() { }
 }

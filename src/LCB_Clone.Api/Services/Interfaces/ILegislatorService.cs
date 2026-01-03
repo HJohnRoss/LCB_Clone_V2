@@ -5,8 +5,8 @@ namespace LCB_Clone.Api.Services.Interfaces;
 public interface ILegislatorService
 {
 	Task<List<LegislatorResponseDto>> GetAll();
-	Task<LegislatorResponseDto?> GetOne(int id);
+	Task<LegislatorResponseDto?> GetOne(ulong id);
 	Task<LegislatorResponseDto?> Create(LegislatorCreateDto dto);
-	Task<bool> Delete(int id);
+	Task<bool> Delete(ulong id);
 	Task<LegislatorResponseDto?> Update(LegislatorUpdateDto dto);
 }

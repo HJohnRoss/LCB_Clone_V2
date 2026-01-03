@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 namespace LCB_Clone.Shared.Dtos.Legislators;
 
 public class LegislatorUpdateDto(
-		int id,
+		ulong id,
 		string? firstName,
 		string? middleName,
 		string? LastName,
@@ -17,7 +17,7 @@ public class LegislatorUpdateDto(
 		)
 {
 	[Required]
-	public required int Id { get; set; } = id;
+	public required ulong Id { get; set; } = id;
 
 	public string? FirstName { get; set; } = firstName;
 	public string? MiddleName { get; set; } = middleName;

@@ -26,8 +26,8 @@ public class LegislatorsController(ILegislatorService legislatorService) : Contr
 		return Ok(legislators);
 	}
 
-	[HttpGet("/{id:int}")]
-	public async Task<ActionResult<LegislatorResponseDto>> GetOne(int id)
+	[HttpGet("/{id:ulong}")]
+	public async Task<ActionResult<LegislatorResponseDto>> GetOne(ulong id)
 	{
 		// Creates DTO Reponse
 		LegislatorResponseDto? legislator = await _legislatorService.GetOne(id);
@@ -57,8 +57,8 @@ public class LegislatorsController(ILegislatorService legislatorService) : Contr
 		return Ok(legislator);
 	}
 
-	[HttpDelete("{id:int}")]
-	public async Task<ActionResult> Delete(int id)
+	[HttpDelete("{id:ulong}")]
+	public async Task<ActionResult> Delete(ulong id)
 	{
 		bool validRequest = await _legislatorService.Delete(id);
 		if (!validRequest)

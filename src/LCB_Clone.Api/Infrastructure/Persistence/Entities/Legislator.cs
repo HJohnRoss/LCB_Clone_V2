@@ -4,19 +4,19 @@ namespace LCB_Clone.Api.Infrastructure.Persistence.Entities;
 
 public class Legislator
 {
-	public int Id { get; set; }
+	public ulong Id { get; set; }
 
 	[Required]
-	public string FirstName { get; set; }
+	public string FirstName { get; set; } = null!;
 	public string? MiddleName { get; set; }
 	[Required]
-	public string LastName { get; set; }
+	public string LastName { get; set; } = null!;
 	[Required]
-	public string Party { get; set; }
+	public string Party { get; set; } = null!;
 	[Required]
 	public int County { get; set; }
 	[Required]
-	public string Email { get; set; }
+	public string Email { get; set; } = null!;
 
 	public int? LVOffice { get; set; }
 	public int? CCOffice { get; set; }
@@ -31,7 +31,7 @@ public class Legislator
 	// WARN: Look up on why i need this
 	public Legislator() { }
 
-	public Legislator(int id)
+	public Legislator(ulong id)
 	{
 		Id = id;
 	}

@@ -7,7 +7,7 @@ namespace LCB_Clone.Shared.Dtos.LegislatorStrings;
 public class LegislatorStringsUpdateDto
 {
 	[Required]
-	public required int Id { get; set; }
+	public required ulong Id { get; set; }
 
 	public required string Text { get; set; }
 
