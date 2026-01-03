@@ -13,5 +13,7 @@ public class Social
 
 	[Required]
 	public required int LegislatorId { get; set; }
-	public Legislator Legislator { get; set; } = null!;
+	public Legislator Legislator { get; set; }
+
+	public Social() { }
 }

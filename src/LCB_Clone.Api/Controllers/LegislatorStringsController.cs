@@ -16,9 +16,7 @@ public class LegislatorStringsController(ILegislatorStringsServices legislatorSt
 		List<LegislatorStringsResponseDto> legislatorStrings = await _legislatorStringsServices.GetAll();
 
 		if (legislatorStrings == null)
-		{
 			return NotFound(legislatorStrings);
-		}
 
 		return Ok(legislatorStrings);
 	}
@@ -29,9 +27,7 @@ public class LegislatorStringsController(ILegislatorStringsServices legislatorSt
 		LegislatorStringsResponseDto? legislatorString = await _legislatorStringsServices.GetOne(id);
 
 		if (legislatorString == null)
-		{
 			return NotFound(legislatorString);
-		}
 
 		return Ok(legislatorString);
 	}
@@ -42,10 +38,19 @@ public class LegislatorStringsController(ILegislatorStringsServices legislatorSt
 		LegislatorStringsResponseDto legislatorString = await _legislatorStringsServices.Create(dto);
 
 		if (legislatorString == null)
-		{
 			return BadRequest(legislatorString);
-		}
 
 		return Ok(legislatorString);
+	}
+
+	[HttpDelete]
+	public async Task<ActionResult<bool>> Delete(int id)
+	{
+		bool isDeleted = await _legislatorStringsServices.Delete(id);
+
+		if (!isDeleted)
+			return NotFound(isDeleted);
+
+		return Ok(isDeleted);
 	}
 }

@@ -16,7 +16,7 @@ public class LegislatorString
 	public required int LegislatorId { get; set; }
 	public Legislator? Legislator { get; set; }
 
-	private LegislatorString() { }
+	public LegislatorString() { }
 
 	public LegislatorString(
 		string text,

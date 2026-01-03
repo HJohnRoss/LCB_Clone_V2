@@ -1,2 +1,0 @@
-dotnet watch --project LCB_Clone.Web/
-dotnet watch --project LCB_Clone.Api/

@@ -36,7 +36,7 @@ public class LegislatorsController(ILegislatorService legislatorService) : Contr
 		if (legislator == null)
 		{
 			// TODO: Error Handling
-			return BadRequest(legislator);
+			return NotFound(legislator);
 		}
 
 		// Sends an 200 response with the object

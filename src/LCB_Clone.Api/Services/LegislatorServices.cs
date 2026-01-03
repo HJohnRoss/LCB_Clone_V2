@@ -22,7 +22,6 @@ public class LegislatorService(AppDbContext db) : ILegislatorService
 		List<LegislatorResponseDto> legislators = await _db.Legislators
 			.AsNoTracking()
 			.Select(l => new LegislatorResponseDto(
-
 				l.Id,
 				l.FirstName,
 				l.MiddleName,
@@ -57,14 +56,9 @@ public class LegislatorService(AppDbContext db) : ILegislatorService
 	public async Task<LegislatorResponseDto?> GetOne(int id)
 	{
 		LegislatorResponseDto? legislator = await _db.Legislators
-			// NOTE: .AsNoTracking() increase query speed for get request
 			.AsNoTracking()
-			// Sql: Where Legislator.Id = Id;
 			.Where(l => l.Id == id)
-			// Sql: Select * from Legislators
-			// l.ToResponse() = converts a Legislator object to LegislatorResponseDto
 			.Select(l => new LegislatorResponseDto(
-
 				l.Id,
 				l.FirstName,
 				l.MiddleName,
@@ -89,7 +83,6 @@ public class LegislatorService(AppDbContext db) : ILegislatorService
 					null
 				)).ToList()
 			))
-			// Takes the query output and gives a LegislatorResponseDto?
 			.FirstOrDefaultAsync();
 
 		return legislator;
@@ -130,18 +123,7 @@ public class LegislatorService(AppDbContext db) : ILegislatorService
 
 	public async Task<bool> Delete(int id)
 	{
-		Legislator? legislator = await _db.Legislators
-			.FirstOrDefaultAsync(l => l.Id == id);
-
-		if (legislator == null)
-		{
-			return false;
-		}
-
-		_db.Legislators.Remove(legislator);
-		await _db.SaveChangesAsync();
-
-		return true;
+		return await _db.Legislators.Where(l => l.Id == id).ExecuteDeleteAsync() > 0;
 	}
 
 	public async Task<LegislatorResponseDto?> Update(LegislatorUpdateDto dto)
@@ -153,9 +135,7 @@ public class LegislatorService(AppDbContext db) : ILegislatorService
 		// then run _db.SaveChangesAsync() to generate the UPDATE query from the changed legislator object
 
 		if (legislator == null)
-		{
 			return null;
-		}
 
 		dto.ApplyUpdate(legislator);
 
