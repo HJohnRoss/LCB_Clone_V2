@@ -7,3 +7,6 @@ Look into how to orginize the API endpoints.
 
 Look more into LINQ
 	https://learn.microsoft.com/en-us/dotnet/csharp/linq/
+
+Look into differences between the 3 types of Blazor projects
+	Swap from blazor WASM due to performence load times
