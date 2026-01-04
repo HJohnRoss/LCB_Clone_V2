@@ -1,0 +1,14 @@
+- Finish Socials routes
+
+- Unit Testing
+
+- Create Session model
+- Create Bills model
+	- Create Enum for bills and resolutions?
+		- Dont know how to handle this quite yet
+- Create Committee Model
+- Create Meeting Model
+- Create Vote Model
+
+- look into differences between the 3 types of Blazor projects
+	- Swap from blazor WASM due to performence load times
