@@ -8,5 +8,6 @@ public static class MapAllEndpoints
 	{
 		LegislatorEndpoints.MapEndpoints(app);
 		LegislatorStringEndpoints.MapEndpoints(app);
+		SocialEndpoints.MapEndpoints(app);
 	}
 }

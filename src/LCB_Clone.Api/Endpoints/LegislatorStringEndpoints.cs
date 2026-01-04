@@ -7,24 +7,21 @@ public static class LegislatorStringEndpoints
 {
 	public static void MapEndpoints(WebApplication app)
 	{
-		app.MapGet("/api/LegislatorString", (ILegislatorStringsServices legislatorStringsServices) =>
-				legislatorStringsServices.GetAll())
-			.WithTags("LegislatorString");
+		RouteGroupBuilder endpoint = app.MapGroup("/api/LegislatorString").WithTags("LegislatorString");
 
-		app.MapGet("/api/LegislatorString/{id:int}", (ILegislatorStringsServices legislatorStingsService, int id) =>
-				legislatorStingsService.GetOne(id))
-			.WithTags("LegislatorString");
+		endpoint.MapGet("", async (ILegislatorStringsServices legislatorStringsServices) =>
+				await legislatorStringsServices.GetAll());
 
-		app.MapPost("/api/LegislatorString", (ILegislatorStringsServices legislatorStringsServices, LegislatorStringsCreateDto dto) =>
-				legislatorStringsServices.Create(dto))
-			.WithTags("LegislatorString");
+		endpoint.MapGet("{id:int}", async (ILegislatorStringsServices legislatorStingsService, int id) =>
+				await legislatorStingsService.GetOne(id));
 
-		app.MapPut("/api/LegislatorString", (ILegislatorStringsServices legislatorStringsServices, LegislatorStringsUpdateDto dto) =>
-				legislatorStringsServices.Update(dto))
-			.WithTags("LegislatorString");
+		endpoint.MapPost("", async (ILegislatorStringsServices legislatorStringsServices, LegislatorStringsCreateDto dto) =>
+				await legislatorStringsServices.Create(dto));
 
-		app.MapDelete("/api/LegislatorString/{id:int}", (ILegislatorStringsServices legislatorStringsServices, int id) =>
-				legislatorStringsServices.Delete(id))
-			.WithTags("LegislatorString");
+		endpoint.MapPut("", async (ILegislatorStringsServices legislatorStringsServices, LegislatorStringsUpdateDto dto) =>
+				await legislatorStringsServices.Update(dto));
+
+		endpoint.MapDelete("{id:int}", async (ILegislatorStringsServices legislatorStringsServices, int id) =>
+				await legislatorStringsServices.Delete(id));
 	}
 }

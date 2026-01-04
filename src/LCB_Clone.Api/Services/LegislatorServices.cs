@@ -36,7 +36,9 @@ public class LegislatorService(AppDbContext db) : ILegislatorService
 				l.Socials.Select(s => new SocialResponseDto(
 					s.Id,
 					s.Icon,
-					s.WebsiteLink
+					s.WebsiteLink,
+					s.LegislatorId,
+					null
 				)).ToList(),
 				l.LegislatorStrings.Select(ls => new LegislatorStringsResponseDto(
 					ls.Id,
@@ -73,7 +75,9 @@ public class LegislatorService(AppDbContext db) : ILegislatorService
 				l.Socials.Select(s => new SocialResponseDto(
 					s.Id,
 					s.Icon,
-					s.WebsiteLink
+					s.WebsiteLink,
+					s.LegislatorId,
+					null
 				)).ToList(),
 				l.LegislatorStrings.Select(ls => new LegislatorStringsResponseDto(
 					ls.Id,

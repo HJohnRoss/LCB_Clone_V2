@@ -1,4 +1,5 @@
 using LCB_Clone.Api.Infrastructure.Persistence.Entities;
+using LCB_Clone.Api.Mappings.Legislators;
 using LCB_Clone.Shared.Dtos.Socials;
 
 namespace LCB_Clone.Api.Mappings.Socials;
@@ -16,7 +17,9 @@ public static class ResponseDtoMappings
 		return new SocialResponseDto(
 				social.Id,
 				social.Icon,
-				social.WebsiteLink
+				social.WebsiteLink,
+				social.LegislatorId,
+				social.Legislator?.ToResponse()
 				);
 	}
 }
