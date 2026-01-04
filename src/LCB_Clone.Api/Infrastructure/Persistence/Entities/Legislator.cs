@@ -4,7 +4,7 @@ namespace LCB_Clone.Api.Infrastructure.Persistence.Entities;
 
 public class Legislator
 {
-	public ulong Id { get; set; }
+	public int Id { get; set; }
 
 	[Required]
 	public string FirstName { get; set; } = null!;
@@ -31,7 +31,7 @@ public class Legislator
 	// WARN: Look up on why i need this
 	public Legislator() { }
 
-	public Legislator(ulong id)
+	public Legislator(int id)
 	{
 		Id = id;
 	}

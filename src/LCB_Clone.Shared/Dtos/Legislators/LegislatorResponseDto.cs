@@ -4,7 +4,7 @@ using LCB_Clone.Shared.Dtos.Socials;
 namespace LCB_Clone.Shared.Dtos.Legislators;
 
 public record LegislatorResponseDto(
-	ulong Id,
+	int Id,
 	string FirstName,
 	string? MiddleName,
 	string LastName,

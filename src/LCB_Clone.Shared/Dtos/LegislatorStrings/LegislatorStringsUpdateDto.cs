@@ -7,13 +7,13 @@ namespace LCB_Clone.Shared.Dtos.LegislatorStrings;
 public class LegislatorStringsUpdateDto
 {
 	[Required]
-	public required ulong Id { get; set; }
+	public required int Id { get; set; }
 
-	public required string Text { get; set; }
+	public string? Text { get; set; }
 
-	public required LegislatorStringType Type { get; set; }
+	public LegislatorStringType? Type { get; set; }
 
-	public required int LegislatorId { get; set; }
+	public int? LegislatorId { get; set; }
 }
 
 

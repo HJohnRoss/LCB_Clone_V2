@@ -47,7 +47,7 @@ public class LegislatorStringsServices(AppDbContext db) : ILegislatorStringsServ
 		return legislatorStrings;
 	}
 
-	public async Task<LegislatorStringsResponseDto?> GetOne(ulong id)
+	public async Task<LegislatorStringsResponseDto?> GetOne(int id)
 	{
 		LegislatorStringsResponseDto? legislatorString = await _db.LegislatorStrings
 			.AsNoTracking()
@@ -99,14 +99,17 @@ public class LegislatorStringsServices(AppDbContext db) : ILegislatorStringsServ
 		LegislatorString? legislatorString = await _db.LegislatorStrings
 			.FirstOrDefaultAsync(ls => ls.Id == dto.Id);
 
-		// legislatorString
 		if (legislatorString == null)
 			return null;
 
-		return null;
+		dto.ApplyUpdate(legislatorString);
+
+		await _db.SaveChangesAsync();
+
+		return legislatorString.ToResponse();
 	}
 
-	public async Task<bool> Delete(ulong id)
+	public async Task<bool> Delete(int id)
 	{
 		return await _db.LegislatorStrings.Where(ls => ls.Id == id).ExecuteDeleteAsync() > 0;
 	}

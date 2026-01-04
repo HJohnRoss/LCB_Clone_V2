@@ -5,23 +5,23 @@ namespace LCB_Clone.Api.Infrastructure.Persistence.Entities;
 
 public class LegislatorString
 {
-	public ulong Id { get; set; }
+	public int Id { get; set; }
 
 	[Required]
 	public required string Text { get; set; }
 	[Required]
-	public required LegislatorStringType Type { get; set; }
+	public LegislatorStringType? Type { get; set; }
 
 	[Required]
-	public required ulong LegislatorId { get; set; }
+	public int? LegislatorId { get; set; }
 	public Legislator? Legislator { get; set; }
 
 	public LegislatorString() { }
 
 	public LegislatorString(
 		string text,
-		LegislatorStringType type,
-		ulong legislatorId
+		LegislatorStringType? type,
+		int? legislatorId
 	)
 	{
 		Text = text;

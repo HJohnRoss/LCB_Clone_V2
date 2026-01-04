@@ -1,31 +1,21 @@
 using DotNetEnv;
 
 using LCB_Clone.Api.Infrastructure.Extensions;
-using LCB_Clone.Api.Services;
-using LCB_Clone.Api.Services.Interfaces;
+using LCB_Clone.Api.Infrastructure.Persistence;
 
 // --- env variables ---
 Env.Load();
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-// Add controllers
-builder.Services.AddControllers();
-
-// Add Services
-builder.Services.AddScoped<ILegislatorService, LegislatorService>();
-builder.Services.AddScoped<ILegislatorStringsServices, LegislatorStringsServices>();
-
-// --- Services ---
-builder.Services.AddPersistence(builder.Configuration);
-builder.Services.AddCorsPolicy();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-// --- API Routes ---
+// -- Services --
+MapServices.Map(builder);
 
 // --- Build App ---
 WebApplication app = builder.Build();
+
+// --- Maps Endpoints ---
+MapAllEndpoints.Map(app);
 
 // --- Middleware ---
 app.UseCorsPolicy();
@@ -35,10 +25,7 @@ if (!app.Environment.IsEnvironment("Test"))
 	app.UseSwaggerUI();
 }
 
-// --- Controllers ---
 app.UseHttpsRedirection();
-app.UseAuthorization();
-app.MapControllers();
 
 // --- Run App ---
 app.Run();

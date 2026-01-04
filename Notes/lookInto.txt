@@ -1,12 +1,2 @@
-Transition from Traditional Controller to Minimal API
-	https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.controllerbase?view=aspnetcore-8.0
-	https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis?view=aspnetcore-8.0
-
-Look into how to orginize the API endpoints.
-	Im guessing i can use the same architecture
-
-Look more into LINQ
-	https://learn.microsoft.com/en-us/dotnet/csharp/linq/
-
 Look into differences between the 3 types of Blazor projects
 	Swap from blazor WASM due to performence load times

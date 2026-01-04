@@ -53,7 +53,7 @@ public class LegislatorService(AppDbContext db) : ILegislatorService
 
 	// Legislator Get One
 	// @params (int id)
-	public async Task<LegislatorResponseDto?> GetOne(ulong id)
+	public async Task<LegislatorResponseDto?> GetOne(int id)
 	{
 		LegislatorResponseDto? legislator = await _db.Legislators
 			.AsNoTracking()
@@ -121,7 +121,7 @@ public class LegislatorService(AppDbContext db) : ILegislatorService
 		return legislator.ToResponse();
 	}
 
-	public async Task<bool> Delete(ulong id)
+	public async Task<bool> Delete(int id)
 	{
 		return await _db.Legislators.Where(l => l.Id == id).ExecuteDeleteAsync() > 0;
 	}
@@ -130,9 +130,6 @@ public class LegislatorService(AppDbContext db) : ILegislatorService
 	{
 		Legislator? legislator = await _db.Legislators
 			.FirstOrDefaultAsync(l => l.Id == dto.Id);
-		// NOTE: .AsNoTracking() makes it so EF does not track the object
-		// However Here I dont use it so im able to manipulate the legislator object
-		// then run _db.SaveChangesAsync() to generate the UPDATE query from the changed legislator object
 
 		if (legislator == null)
 			return null;

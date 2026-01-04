@@ -4,9 +4,9 @@ using LCB_Clone.Shared.Enums.Legislators;
 namespace LCB_Clone.Shared.Dtos.LegislatorStrings;
 
 public record LegislatorStringsResponseDto(
-	ulong Id,
+	int Id,
 	string Text,
-	LegislatorStringType Type,
-	ulong LegislatorId,
+	LegislatorStringType? Type,
+	int? LegislatorId,
 	LegislatorResponseDto? Legislator
 );
