@@ -11,18 +11,40 @@ public static class LegislatorEndpoints
 		RouteGroupBuilder endpoint = app.MapGroup("/api/Legislator").WithTags("Legislator");
 
 		endpoint.MapGet("", async (ILegislatorService legislatorService) =>
-				await legislatorService.GetAll());
+		{
+			return Results.Ok(await legislatorService.GetAll());
+		});
 
 		endpoint.MapGet("{id:int}", async (ILegislatorService legislatorService, int id) =>
-				await legislatorService.GetOne(id));
+		{
+			LegislatorResponseDto? legislator = await legislatorService.GetOne(id);
+			return legislator != null
+				? Results.Ok(legislator)
+				: Results.NotFound();
+		});
 
 		endpoint.MapPost("", async (ILegislatorService legislatorService, LegislatorCreateDto dto) =>
-				await legislatorService.Create(dto));
+		{
+			LegislatorResponseDto? legislator = await legislatorService.Create(dto);
+			return legislator != null
+				? Results.Created($"/api/Legislator/{legislator.Id}", legislator)
+				: Results.BadRequest();
+		});
 
 		endpoint.MapPut("", async (ILegislatorService legislatorService, LegislatorUpdateDto dto) =>
-				await legislatorService.Update(dto));
+		{
+			bool updated = await legislatorService.Update(dto);
+			return updated
+				? Results.Ok()
+				: Results.NotFound();
+		});
 
 		endpoint.MapDelete("{id:int}", async (ILegislatorService legislatorService, int id) =>
-				await legislatorService.Delete(id));
+		{
+			bool deleted = await legislatorService.Delete(id);
+			return deleted
+				? Results.NoContent()
+				: Results.NotFound();
+		});
 	}
 }

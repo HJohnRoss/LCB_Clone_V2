@@ -3,8 +3,11 @@ using DotNetEnv;
 using LCB_Clone.Api.Infrastructure.Extensions;
 using LCB_Clone.Api.Infrastructure.Persistence;
 
-// --- env variables ---
-Env.Load();
+// Only load API .env when NOT running tests
+if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") != "Test")
+{
+	Env.Load();
+}
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -19,15 +22,15 @@ MapAllEndpoints.Map(app);
 
 // --- Middleware ---
 app.UseCorsPolicy();
-if (!app.Environment.IsEnvironment("Test"))
+if (app.Environment.IsDevelopment())
 {
 	app.UseSwagger();
 	app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
 
-// --- Run App ---
 app.Run();
 
 public partial class Program { }
+

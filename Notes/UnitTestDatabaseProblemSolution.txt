@@ -1,0 +1,9 @@
+[Problem]
+- The API database was overritting itself when I would run the Unit Tests project
+
+[Solution]
+- Making a user only allowed to access the API database
+	and created another user that only had access to the Test DB.
+
+[Learned]
+- Think of permissions, its probably the easiest solution!!! xD
