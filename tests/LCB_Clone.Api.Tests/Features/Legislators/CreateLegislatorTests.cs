@@ -8,34 +8,34 @@ namespace LCB_Clone.Api.Tests.Features.Legislators;
 
 public class CreateLegislatorTests : IClassFixture<CustomWebApplicationFactory>
 {
-    private readonly HttpClient _client;
+	private readonly HttpClient _client;
 
-    public CreateLegislatorTests(CustomWebApplicationFactory factory)
-    {
-        _client = factory.CreateClient();
-    }
+	public CreateLegislatorTests(CustomWebApplicationFactory factory)
+	{
+		_client = factory.CreateClient();
+	}
 
-    [Fact]
-    public async Task CreateLegislator_Returns201AndLegislator()
-    {
-        var dto = new LegislatorCreateDto
-        {
-            FirstName = "Jane",
-            LastName = "Doe",
-            Party = "Independent",
-            County = "Clark",
-            Email = "jane@legislature.gov",
-            TermEndYear = 2028
-        };
+	[Fact]
+	public async Task CreateLegislator_Returns201AndLegislator()
+	{
+		var dto = new LegislatorCreateDto
+		{
+			FirstName = "Jane",
+			LastName = "Doe",
+			Party = "Independent",
+			County = "Clark",
+			Email = "jane@legislature.gov",
+			TermEndYear = 2028
+		};
 
-        var response = await _client.PostAsJsonAsync("/api/legislators", dto);
+		var response = await _client.PostAsJsonAsync("/api/legislators", dto);
 
-        response.StatusCode.Should().Be(HttpStatusCode.Created);
+		response.StatusCode.Should().Be(HttpStatusCode.Created);
 
-        var legislator =
-            await response.Content.ReadFromJsonAsync<LegislatorResponseDto>();
+		var legislator =
+			await response.Content.ReadFromJsonAsync<LegislatorResponseDto>();
 
-        legislator!.FirstName.Should().Be("Jane");
-    }
+		legislator!.FirstName.Should().Be("Jane");
+	}
 }
 
