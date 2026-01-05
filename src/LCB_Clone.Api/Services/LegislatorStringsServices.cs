@@ -98,19 +98,14 @@ public class LegislatorStringsServices(AppDbContext db) : ILegislatorStringsServ
 		return legislatorString.ToResponse();
 	}
 
-	public async Task<LegislatorStringsResponseDto?> Update(LegislatorStringsUpdateDto dto)
+	public async Task<bool> Update(LegislatorStringsUpdateDto dto)
 	{
-		LegislatorString? legislatorString = await _db.LegislatorStrings
-			.FirstOrDefaultAsync(ls => ls.Id == dto.Id);
-
-		if (legislatorString == null)
-			return null;
-
-		dto.ApplyUpdate(legislatorString);
-
-		await _db.SaveChangesAsync();
-
-		return legislatorString.ToResponse();
+		return await _db.LegislatorStrings
+			.Where(ls => ls.Id == dto.Id)
+			.ExecuteUpdateAsync(setters => setters
+					.SetProperty(ls => ls.Text, ls => dto.Text ?? ls.Text)
+					.SetProperty(ls => ls.Type, ls => dto.Type ?? ls.Type)
+					.SetProperty(ls => ls.LegislatorId, ls => dto.LegislatorId ?? ls.LegislatorId)) > 0;
 	}
 
 	public async Task<bool> Delete(int id)

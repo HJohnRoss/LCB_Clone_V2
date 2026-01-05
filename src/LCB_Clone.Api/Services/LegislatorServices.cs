@@ -130,18 +130,22 @@ public class LegislatorService(AppDbContext db) : ILegislatorService
 		return await _db.Legislators.Where(l => l.Id == id).ExecuteDeleteAsync() > 0;
 	}
 
-	public async Task<LegislatorResponseDto?> Update(LegislatorUpdateDto dto)
+	public async Task<bool> Update(LegislatorUpdateDto dto)
 	{
-		Legislator? legislator = await _db.Legislators
-			.FirstOrDefaultAsync(l => l.Id == dto.Id);
-
-		if (legislator == null)
-			return null;
-
-		dto.ApplyUpdate(legislator);
-
-		await _db.SaveChangesAsync();
-
-		return legislator.ToResponse();
+		// NOTE:
+		// Might take a look at different options later if query performance becomes an issue
+		return await _db.Legislators
+			.Where(l => l.Id == dto.Id)
+			.ExecuteUpdateAsync(s => s
+					.SetProperty(l => l.FirstName, l => dto.FirstName ?? l.FirstName)
+					.SetProperty(l => l.MiddleName, l => dto.MiddleName ?? l.MiddleName)
+					.SetProperty(l => l.LastName, l => dto.LastName ?? l.LastName)
+					.SetProperty(l => l.Party, l => dto.Party ?? l.Party)
+					.SetProperty(l => l.County, l => dto.County ?? l.County)
+					.SetProperty(l => l.Email, l => dto.Email ?? l.Email)
+					.SetProperty(l => l.LVOffice, l => dto.LVOffice ?? l.LVOffice)
+					.SetProperty(l => l.CCOffice, l => dto.CCOffice ?? l.CCOffice)
+					.SetProperty(l => l.CCPhone, l => dto.CCPhone ?? l.CCPhone)
+					.SetProperty(l => l.TermEndYear, l => dto.TermEndYear ?? l.TermEndYear)) > 0;
 	}
 }

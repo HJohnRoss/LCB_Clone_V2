@@ -5,9 +5,11 @@ namespace LCB_Clone.Shared.Dtos.Socials;
 public class SocialUpdateDto
 {
 	[Required]
-	public ulong Id { get; set; }
+	public int Id { get; set; }
 
-	public string? Name { get; set; }
-	public string? Link { get; set; }
+	public string? Icon { get; set; }
+	public string? WebsiteLink { get; set; }
+
+	public int? LegislatorId { get; set; }
 }
 

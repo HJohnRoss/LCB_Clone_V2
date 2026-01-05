@@ -1,5 +1,3 @@
-- Finish Socials routes
-
 - Unit Testing
 
 - Create Session model
@@ -9,6 +7,8 @@
 - Create Committee Model
 - Create Meeting Model
 - Create Vote Model
+
+- Validation Layer for SQL Queries
 
 - look into differences between the 3 types of Blazor projects
 	- Swap from blazor WASM due to performence load times

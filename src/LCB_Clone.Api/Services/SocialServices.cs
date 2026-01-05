@@ -60,4 +60,14 @@ public class SocialServices(AppDbContext db) : ISocialServices
 	{
 		return await _db.Socials.Where(ls => ls.Id == id).ExecuteDeleteAsync() > 0;
 	}
+
+	public async Task<bool> Update(SocialUpdateDto dto)
+	{
+		return await _db.Socials
+			.Where(s => s.Id == dto.Id)
+			.ExecuteUpdateAsync(setters => setters
+					.SetProperty(s => s.Icon, s => dto.Icon ?? s.Icon)
+					.SetProperty(s => s.WebsiteLink, s => dto.WebsiteLink ?? s.WebsiteLink)
+					.SetProperty(s => s.LegislatorId, s => dto.LegislatorId ?? s.LegislatorId)) > 0;
+	}
 }

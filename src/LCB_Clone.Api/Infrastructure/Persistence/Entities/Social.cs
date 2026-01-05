@@ -12,12 +12,12 @@ public class Social
 	public string? WebsiteLink { get; set; }
 
 	[Required]
-	public int LegislatorId { get; set; }
+	public int? LegislatorId { get; set; }
 	public Legislator Legislator { get; set; } = null!;
 
 	public Social() { }
 
-	public Social(string? icon, string? websiteLink, int legislatorId)
+	public Social(string? icon, string? websiteLink, int? legislatorId)
 	{
 		Icon = icon;
 		WebsiteLink = websiteLink;

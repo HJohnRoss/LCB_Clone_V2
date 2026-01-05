@@ -7,6 +7,6 @@ public interface ILegislatorStringsServices
 	Task<List<LegislatorStringsResponseDto>> GetAll();
 	Task<LegislatorStringsResponseDto?> GetOne(int id);
 	Task<LegislatorStringsResponseDto> Create(LegislatorStringsCreateDto dto);
-	Task<LegislatorStringsResponseDto?> Update(LegislatorStringsUpdateDto dto);
+	Task<bool> Update(LegislatorStringsUpdateDto dto);
 	Task<bool> Delete(int id);
 }

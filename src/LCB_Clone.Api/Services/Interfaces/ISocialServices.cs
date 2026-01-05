@@ -8,4 +8,5 @@ public interface ISocialServices
 	Task<SocialResponseDto?> GetOne(int id);
 	Task<SocialResponseDto?> Create(SocialCreateDto dto);
 	Task<bool> Delete(int id);
+	Task<bool> Update(SocialUpdateDto dto);
 }

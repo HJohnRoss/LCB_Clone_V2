@@ -20,5 +20,8 @@ public static class SocialEndpoints
 
 		endpoint.MapDelete("{id:int}", async (ISocialServices socialServices, int id) =>
 				await socialServices.Delete(id));
+
+		endpoint.MapPut("", async (ISocialServices socialServices, SocialUpdateDto dto) =>
+				await socialServices.Update(dto));
 	}
 }
