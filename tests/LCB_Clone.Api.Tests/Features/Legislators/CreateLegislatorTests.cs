@@ -10,7 +10,7 @@ public class CreateLegislatorTests(CustomWebApplicationFactory factory) : IClass
 	private readonly HttpClient _client = factory.CreateClient();
 
 	[Fact]
-	public async Task CreateLegislator_Returns201AndLegislator()
+	public async Task CreateLegislator_ReturnsOkAndLegislator()
 	{
 		string testString = "Test String";
 		int testInt = 999;
@@ -47,4 +47,3 @@ public class CreateLegislatorTests(CustomWebApplicationFactory factory) : IClass
 				options.ExcludingMissingMembers());
 	}
 }
-

@@ -9,7 +9,7 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 {
 	protected override void ConfigureWebHost(IWebHostBuilder builder)
 	{
-		builder.UseEnvironment("Test"); // Optional
+		builder.UseEnvironment("Test");
 
 		builder.ConfigureServices(services =>
 		{
@@ -25,22 +25,6 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 			using var scope = sp.CreateScope();
 			var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
 			db.Database.EnsureCreated();
-
-			db.Legislators.Add(new LCB_Clone.Api.Infrastructure.Persistence.Entities.Legislator
-			{
-				FirstName = "string",
-				MiddleName = "string",
-				LastName = "string",
-				Party = "string",
-				County = 0,
-				Email = "string",
-				LVOffice = 0,
-				CCOffice = 0,
-				CCPhone = "string",
-				TermEndYear = 0
-			});
-
-			db.SaveChanges();
 		});
 	}
 }
