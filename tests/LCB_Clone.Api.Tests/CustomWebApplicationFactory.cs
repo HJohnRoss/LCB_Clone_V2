@@ -63,7 +63,6 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 			var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
 			var conn = db.Database.GetDbConnection();
 
-			Console.WriteLine($"[TEST] Connected DB: {conn.Database}");
 			if (!conn.Database.Contains("test", StringComparison.OrdinalIgnoreCase))
 			{
 				throw new InvalidOperationException(

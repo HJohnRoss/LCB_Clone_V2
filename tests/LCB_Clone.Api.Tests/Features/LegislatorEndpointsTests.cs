@@ -4,7 +4,6 @@ using FluentAssertions;
 using LCB_Clone.Api.Tests.Infrastructure.Persistence;
 using LCB_Clone.Shared.Dtos.Legislators;
 using Microsoft.AspNetCore.Http;
-using Xunit;
 
 namespace LCB_Clone.Api.Tests.Features;
 
@@ -21,8 +20,6 @@ public class LegislatorEndpointsTests(CustomWebApplicationFactory factory)
 
 	async Task IAsyncLifetime.InitializeAsync()
 	{
-		Console.WriteLine("[TEST] DbReset env TEST_CONNECTION_STRING = " +
-		Environment.GetEnvironmentVariable("TEST_CONNECTION_STRING"));
 		await _dbReset.InitializeAsync();
 		await _dbReset.ResetAsync();
 	}
@@ -30,6 +27,7 @@ public class LegislatorEndpointsTests(CustomWebApplicationFactory factory)
 	Task IAsyncLifetime.DisposeAsync() => Task.CompletedTask;
 
 
+	// --- UNIT TESTS ---
 	[Fact]
 	public async Task CreateLegislator_ReturnsOk()
 	{
@@ -71,7 +69,8 @@ public class LegislatorEndpointsTests(CustomWebApplicationFactory factory)
 
 		Assert.NotNull(legislator);
 		legislator.Should().BeEquivalentTo(created, opts => opts
-			.ExcludingMissingMembers());
+			.Excluding(l => l.Socials)
+			.Excluding(l => l.LegislatorStrings));
 	}
 
 	[Fact]

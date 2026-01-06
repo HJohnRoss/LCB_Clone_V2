@@ -6,7 +6,6 @@ using LCB_Clone.Shared.Dtos.Socials;
 
 namespace LCB_Clone.Api.Tests.Features;
 
-
 public class SocialEndpointsTests(CustomWebApplicationFactory factory)
 	: IClassFixture<CustomWebApplicationFactory>, IAsyncLifetime
 {
@@ -22,14 +21,11 @@ public class SocialEndpointsTests(CustomWebApplicationFactory factory)
 
 	async Task IAsyncLifetime.InitializeAsync()
 	{
-		Console.WriteLine("[TEST] DbReset env TEST_CONNECTION_STRING = " +
-		Environment.GetEnvironmentVariable("TEST_CONNECTION_STRING"));
-		await _dbReset.InitializeAsync(); // if you have this method
+		await _dbReset.InitializeAsync();
 		await _dbReset.ResetAsync();
 	}
 
 	Task IAsyncLifetime.DisposeAsync() => Task.CompletedTask;
-
 
 	// --- UNIT TESTS ---
 	[Fact]
@@ -96,8 +92,8 @@ public class SocialEndpointsTests(CustomWebApplicationFactory factory)
 	public async Task DeleteSocial_WhenDoesNotExist_ReturnsNotFound()
 	{
 		HttpResponseMessage httpResponse =
-			await _client.DeleteAsync($"api/Social/999999");
+			await _client.DeleteAsync($"api/Social/2147483647");
 
-		httpResponse.StatusCode.Should().Be(HttpStatusCode.NoContent);
+		httpResponse.StatusCode.Should().Be(HttpStatusCode.NotFound);
 	}
 }

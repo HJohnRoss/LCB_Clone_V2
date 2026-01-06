@@ -1,0 +1,165 @@
+UNIT TESTING & INTEGRATION TESTING – RECOMMENDED READING (DOTNET)
+
+This list is tailored to ASP.NET Core, EF Core, xUnit, and API testing with a real database.
+
+==================================================
+FOUNDATIONS
+==================================================
+
+1) Microsoft – Unit testing in .NET
+https://learn.microsoft.com/dotnet/core/testing/
+
+Covers:
+- xUnit basics
+- Test structure
+- Async testing
+- Assertions
+
+--------------------------------------------------
+
+2) xUnit Documentation
+https://xunit.net/docs/getting-started/netcore/cmdline
+
+Focus on:
+- IClassFixture
+- IAsyncLifetime
+- Test collections
+- Parallelization
+
+==================================================
+ASP.NET CORE INTEGRATION TESTING
+==================================================
+
+3) Microsoft – Integration tests in ASP.NET Core
+https://learn.microsoft.com/aspnet/core/test/integration-tests
+
+Covers:
+- WebApplicationFactory
+- HttpClient
+- In-memory test server
+- Dependency overrides
+
+This directly matches how you are testing now.
+
+--------------------------------------------------
+
+4) Mark Heath – Testing ASP.NET Core APIs
+https://markheath.net/post/aspnetcore-integration-tests
+
+Practical examples of:
+- API route testing
+- Status code validation
+- HTTP behavior testing
+
+==================================================
+EF CORE & DATABASE TESTING
+==================================================
+
+5) Microsoft – Testing EF Core
+https://learn.microsoft.com/ef/core/testing/
+
+Key concepts:
+- Why EF InMemory provider can be misleading
+- When to use SQLite or a real DB
+- Testing with transactions
+
+--------------------------------------------------
+
+6) Andrew Lock – Integration testing with databases
+https://andrewlock.net/using-sqlite-for-ef-core-integration-tests/
+
+Even if you use MySQL, the principles apply:
+- Test isolation
+- Deterministic data
+- Database lifecycle management
+
+--------------------------------------------------
+
+7) Jimmy Bogard – Integration testing strategies
+https://jimmybogard.com/integration-testing-strategies/
+
+Covers:
+- When to unit test vs integration test
+- Transaction-based tests
+- Avoiding flaky tests
+
+==================================================
+TEST DESIGN & STRUCTURE
+==================================================
+
+8) Martin Fowler – Unit Test vs Integration Test
+https://martinfowler.com/bliki/IntegrationTest.html
+
+Explains:
+- Terminology
+- Trade-offs
+- Why integration tests are valuable
+
+--------------------------------------------------
+
+9) Test Data Builder Pattern – Nat Pryce
+https://natpryce.com/articles/000714.html
+
+Helps with:
+- Cleaner test setup
+- Readable tests
+- Avoiding brittle test data
+
+--------------------------------------------------
+
+10) Ardalis – Test Data Builders in C#
+https://ardalis.com/test-data-builders-in-csharp/
+
+.NET-focused examples of the builder pattern.
+
+==================================================
+ASSERTIONS & READABILITY
+==================================================
+
+11) FluentAssertions Documentation
+https://fluentassertions.com/introduction/
+
+Focus on:
+- BeEquivalentTo
+- Excluding
+- Expressive assertions
+
+==================================================
+API & HTTP SEMANTICS
+==================================================
+
+12) HTTP Semantics (RFC 9110)
+https://www.rfc-editor.org/rfc/rfc9110
+
+Useful for:
+- Proper status codes (200 vs 204 vs 404)
+- REST correctness
+
+==================================================
+BOOKS (OPTIONAL BUT EXCELLENT)
+==================================================
+
+13) The Art of Unit Testing – Roy Osherove
+Conceptual foundation for test intent and design.
+
+14) Growing Object-Oriented Software, Guided by Tests – Freeman & Pryce
+Advanced testing philosophy and structure.
+
+==================================================
+HOW TO USE THIS LIST
+==================================================
+
+Suggested order:
+1. Microsoft ASP.NET Core Integration Testing
+2. xUnit collections & parallelization
+3. EF Core testing docs
+4. Andrew Lock + Jimmy Bogard articles
+5. Test Data Builder pattern
+6. FluentAssertions deep dive
+
+Goal:
+- Build confidence
+- Avoid flaky tests
+- Make future features cheap to add
+
+End of file.
