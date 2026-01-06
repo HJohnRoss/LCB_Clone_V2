@@ -21,6 +21,7 @@ public class LegislatorService(AppDbContext db) : ILegislatorService
 	{
 		List<LegislatorResponseDto> legislators = await _db.Legislators
 			.AsNoTracking()
+			.AsSplitQuery()
 			.Select(l => new LegislatorResponseDto(
 				l.Id,
 				l.FirstName,
@@ -59,6 +60,7 @@ public class LegislatorService(AppDbContext db) : ILegislatorService
 	{
 		LegislatorResponseDto? legislator = await _db.Legislators
 			.AsNoTracking()
+			.AsSplitQuery()
 			.Where(l => l.Id == id)
 			.Select(l => new LegislatorResponseDto(
 				l.Id,

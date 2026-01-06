@@ -1,28 +1,29 @@
+
 using System.Net;
 using System.Net.Http.Json;
 using FluentAssertions;
 using LCB_Clone.Api.Tests.Infrastructure.Persistence;
 using LCB_Clone.Api.Tests.TestData;
-using LCB_Clone.Shared.Dtos.Legislators;
-using Microsoft.AspNetCore.Http;
+using LCB_Clone.Shared.Dtos.LegislatorStrings;
 
 namespace LCB_Clone.Api.Tests.Features;
 
-public class LegislatorEndpointsTests : IClassFixture<CustomWebApplicationFactory>, IAsyncLifetime
+public sealed class LegislatorStringsEndpointsTests : IClassFixture<CustomWebApplicationFactory>, IAsyncLifetime
 {
 	private readonly HttpClient _client;
 	private readonly TestDataFactory _data;
 
 	private readonly DbReset _dbReset;
-	// --- Contructor ---
-	public LegislatorEndpointsTests(CustomWebApplicationFactory factory)
+
+	public LegislatorStringsEndpointsTests(CustomWebApplicationFactory factory)
 	{
 		_client = factory.CreateClient();
 		_data = new TestDataFactory(_client);
+
 		_dbReset = new DbReset(
-			Environment.GetEnvironmentVariable("TEST_CONNECTION_STRING")
-			?? throw new InvalidOperationException("TEST_CONNECTION_STRING not set.")
-			);
+				Environment.GetEnvironmentVariable("TEST_CONNECTION_STRING")
+				?? throw new InvalidOperationException("TEST_CONNECTION_STRING not set.")
+				);
 	}
 
 	async Task IAsyncLifetime.InitializeAsync()
@@ -35,25 +36,26 @@ public class LegislatorEndpointsTests : IClassFixture<CustomWebApplicationFactor
 
 
 	// --- UNIT TESTS ---
+
 	[Fact]
-	public async Task CreateLegislator_ReturnsOk()
+	public async Task CreateLegislatorString_ReturnsOk()
 	{
-		await _data.Legislators.CreateLegislatorAsync();
+		await _data.LegislatorStrings.CreateLegislatorStringAsync();
 	}
 
 	[Fact]
-	public async Task GetAllLegislators_ReturnsOk()
+	public async Task GetAllLegislatorStrings_ReturnsOk()
 	{
-		await _data.Legislators.CreateLegislatorAsync();
+		await _data.LegislatorStrings.CreateLegislatorStringAsync();
 
 		HttpResponseMessage httpResponse =
-			await _client.GetAsync("api/Legislator");
+			await _client.GetAsync("api/LegislatorString");
 
 		httpResponse.EnsureSuccessStatusCode();
 
-		List<LegislatorResponseDto>? legislators =
+		List<LegislatorStringsResponseDto>? legislators =
 			await httpResponse.Content
-			.ReadFromJsonAsync<List<LegislatorResponseDto>>();
+			.ReadFromJsonAsync<List<LegislatorStringsResponseDto>>();
 
 		Assert.NotNull(legislators);
 		Assert.NotEmpty(legislators);
@@ -62,37 +64,36 @@ public class LegislatorEndpointsTests : IClassFixture<CustomWebApplicationFactor
 	[Fact]
 	public async Task GetOneLegislator_ReturnOkAndLegislator()
 	{
-		LegislatorResponseDto created =
-			await _data.Legislators.CreateLegislatorAsync();
+		LegislatorStringsResponseDto created =
+			await _data.LegislatorStrings.CreateLegislatorStringAsync();
 
 		HttpResponseMessage httpResponse =
-			await _client.GetAsync($"api/Legislator/{created.Id}");
+			await _client.GetAsync($"api/LegislatorString/{created.Id}");
 
 		httpResponse.EnsureSuccessStatusCode();
 
-		LegislatorResponseDto? legislator =
+		LegislatorStringsResponseDto? legislatorString =
 			await httpResponse.Content
-			.ReadFromJsonAsync<LegislatorResponseDto>();
+			.ReadFromJsonAsync<LegislatorStringsResponseDto>();
 
-		Assert.NotNull(legislator);
-		legislator.Should().BeEquivalentTo(created, opts => opts
-			.Excluding(l => l.Socials)
-			.Excluding(l => l.LegislatorStrings));
+		Assert.NotNull(legislatorString);
+		legislatorString.Should().BeEquivalentTo(created, opts => opts
+			.Excluding(ls => ls.Legislator));
 	}
 
 	[Fact]
 	public async Task DeleteLegislator_WhenExists_ReturnsNoContent_AndThenGetNotFound()
 	{
-		LegislatorResponseDto created =
-			await _data.Legislators.CreateLegislatorAsync();
+		LegislatorStringsResponseDto created =
+			await _data.LegislatorStrings.CreateLegislatorStringAsync();
 
 		HttpResponseMessage deleteResponse =
-			await _client.DeleteAsync($"api/Legislator/{created.Id}");
+			await _client.DeleteAsync($"api/LegislatorString/{created.Id}");
 
 		deleteResponse.StatusCode.Should().Be(HttpStatusCode.NoContent);
 
 		HttpResponseMessage getResponse =
-			await _client.GetAsync($"api/Legislator/{created.Id}");
+			await _client.GetAsync($"api/LegislatorString/{created.Id}");
 
 		getResponse.StatusCode.Should().Be(HttpStatusCode.NotFound);
 	}
@@ -101,7 +102,7 @@ public class LegislatorEndpointsTests : IClassFixture<CustomWebApplicationFactor
 	public async Task DeleteLegislator_WhenMissing_ReturnsNotFound()
 	{
 		HttpResponseMessage httpResponse =
-			await _client.DeleteAsync("api/Legislator/2147483647");
+			await _client.DeleteAsync($"api/LegislatorString/2147483647");
 
 		httpResponse.StatusCode.Should().Be(HttpStatusCode.NotFound);
 	}

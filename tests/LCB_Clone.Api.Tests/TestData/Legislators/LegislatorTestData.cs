@@ -1,11 +1,11 @@
 using System.Net.Http.Json;
 using FluentAssertions;
+using LCB_Clone.Api.Tests.TestData.Legislators.Interfaces;
 using LCB_Clone.Shared.Dtos.Legislators;
-using LCB_Clone.Shared.Dtos.Socials;
 
-namespace LCB_Clone.Api.Tests.Features;
+namespace LCB_Clone.Api.Tests.TestData.Legislators;
 
-public sealed class TestData(HttpClient client)
+public sealed class LegislatorTestData(HttpClient client) : ILegislatorTestData
 {
 	public async Task<LegislatorResponseDto> CreateLegislatorAsync()
 	{
@@ -42,25 +42,4 @@ public sealed class TestData(HttpClient client)
 		return created;
 	}
 
-	public async Task<SocialResponseDto> CreateSocialAsync()
-	{
-		var legislator = await CreateLegislatorAsync();
-
-		const string testString = "Test String";
-
-		var dto = new SocialCreateDto(
-			testString,
-			testString,
-			legislator.Id
-		);
-
-		var response = await client.PostAsJsonAsync("api/Social", dto);
-		response.EnsureSuccessStatusCode();
-
-		var created = await response.Content.ReadFromJsonAsync<SocialResponseDto>();
-		created.Should().NotBeNull();
-
-		return created;
-	}
 }
-

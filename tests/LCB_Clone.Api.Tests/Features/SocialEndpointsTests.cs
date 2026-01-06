@@ -2,16 +2,23 @@ using System.Net;
 using System.Net.Http.Json;
 using FluentAssertions;
 using LCB_Clone.Api.Tests.Infrastructure.Persistence;
+using LCB_Clone.Api.Tests.TestData;
 using LCB_Clone.Shared.Dtos.Socials;
 
 namespace LCB_Clone.Api.Tests.Features;
 
-public class SocialEndpointsTests(CustomWebApplicationFactory factory)
+public sealed class SocialEndpointsTests
 	: IClassFixture<CustomWebApplicationFactory>, IAsyncLifetime
 {
-	private readonly HttpClient _client = factory.CreateClient();
-	// --- HELPER FUNCTIONS ---
-	private TestData Data => new(_client);
+	private readonly HttpClient _client;
+	private readonly TestDataFactory _data;
+
+	// --- Constructor ---
+	public SocialEndpointsTests(CustomWebApplicationFactory factory)
+	{
+		_client = factory.CreateClient();
+		_data = new TestDataFactory(_client);
+	}
 
 	// --- DB RESET ---
 	private readonly DbReset _dbReset = new(
@@ -31,13 +38,13 @@ public class SocialEndpointsTests(CustomWebApplicationFactory factory)
 	[Fact]
 	public async Task CreateSocial_ReturnsOk()
 	{
-		await Data.CreateSocialAsync();
+		await _data.Socials.CreateSocialAsync();
 	}
 
 	[Fact]
 	public async Task GetAllSocials_ReturnsOkAndSocials()
 	{
-		await Data.CreateSocialAsync();
+		await _data.Socials.CreateSocialAsync();
 
 		HttpResponseMessage httpResponse =
 			await _client.GetAsync("api/Social");
@@ -55,7 +62,7 @@ public class SocialEndpointsTests(CustomWebApplicationFactory factory)
 	public async Task GetOneSocial_ReturnsOkAndSocial()
 	{
 		SocialResponseDto dto =
-			await Data.CreateSocialAsync();
+			await _data.Socials.CreateSocialAsync();
 
 		HttpResponseMessage httpResponse =
 			await _client.GetAsync($"api/Social/{dto.Id}");
@@ -75,7 +82,7 @@ public class SocialEndpointsTests(CustomWebApplicationFactory factory)
 	public async Task DeleteSocial_WhenExists_ReturnsNoContent_AndThenGetNotFound()
 	{
 		SocialResponseDto dto =
-			await Data.CreateSocialAsync();
+			await _data.Socials.CreateSocialAsync();
 
 		HttpResponseMessage deleteResponse =
 			await _client.DeleteAsync($"api/Social/{dto.Id}");

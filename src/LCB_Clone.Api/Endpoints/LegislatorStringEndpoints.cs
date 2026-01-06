@@ -14,10 +14,7 @@ public static class LegislatorStringEndpoints
 			return Results.Ok(await legislatorStringsServices.GetAll());
 		});
 
-		endpoint.MapGet("{id:int}", async (
-					ILegislatorStringsServices legislatorStingsService,
-					int id
-					) =>
+		endpoint.MapGet("{id:int}", async (ILegislatorStringsServices legislatorStingsService, int id) =>
 		{
 			LegislatorStringsResponseDto? response = await legislatorStingsService.GetOne(id);
 			return response != null
@@ -25,10 +22,7 @@ public static class LegislatorStringEndpoints
 				: Results.NotFound();
 		});
 
-		endpoint.MapPost("", async (
-					ILegislatorStringsServices legislatorStringsServices,
-					LegislatorStringsCreateDto dto
-					) =>
+		endpoint.MapPost("", async (ILegislatorStringsServices legislatorStringsServices, LegislatorStringsCreateDto dto) =>
 		{
 			LegislatorStringsResponseDto response = await legislatorStringsServices.Create(dto);
 			return response != null
@@ -36,10 +30,7 @@ public static class LegislatorStringEndpoints
 				: Results.BadRequest();
 		});
 
-		endpoint.MapPut("", async (
-				ILegislatorStringsServices legislatorStringsServices,
-				LegislatorStringsUpdateDto dto
-				) =>
+		endpoint.MapPut("", async (ILegislatorStringsServices legislatorStringsServices, LegislatorStringsUpdateDto dto) =>
 		{
 			bool response = await legislatorStringsServices.Update(dto);
 			return response
@@ -47,10 +38,7 @@ public static class LegislatorStringEndpoints
 				: Results.BadRequest();
 		});
 
-		endpoint.MapDelete("{id:int}", async (
-					ILegislatorStringsServices legislatorStringsServices,
-					int id
-					) =>
+		endpoint.MapDelete("{id:int}", async (ILegislatorStringsServices legislatorStringsServices, int id) =>
 		{
 			bool response = await legislatorStringsServices.Delete(id);
 			return response
