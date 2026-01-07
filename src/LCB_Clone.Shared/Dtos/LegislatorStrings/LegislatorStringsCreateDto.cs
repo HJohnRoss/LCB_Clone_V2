@@ -6,7 +6,7 @@ namespace LCB_Clone.Shared.Dtos.LegislatorStrings;
 
 public class LegislatorStringsCreateDto(
 		string text,
-		LegislatorStringType? type,
+		LegislatorStringType type,
 		int? legislatorId
 		)
 {
@@ -15,7 +15,7 @@ public class LegislatorStringsCreateDto(
 	public string Text { get; set; } = text;
 
 	[Required]
-	public LegislatorStringType? Type { get; set; } = type;
+	public LegislatorStringType Type { get; set; } = type;
 
 	[Required]
 	public int? LegislatorId { get; set; } = legislatorId;

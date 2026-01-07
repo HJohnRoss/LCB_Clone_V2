@@ -1,8 +1,6 @@
 using LCB_Clone.Api.Infrastructure.Persistence;
 using LCB_Clone.Api.Infrastructure.Persistence.Entities;
 using LCB_Clone.Api.Mappings.Legislators;
-using LCB_Clone.Api.Mappings.LegislatorStrings;
-using LCB_Clone.Api.Mappings.Socials;
 using LCB_Clone.Api.Services.Interfaces;
 using LCB_Clone.Shared.Dtos.Legislators;
 using LCB_Clone.Shared.Dtos.LegislatorStrings;
@@ -19,10 +17,10 @@ public class LegislatorService(AppDbContext db) : ILegislatorService
 
 	public async Task<List<LegislatorResponseDto>> GetAll()
 	{
-		List<LegislatorResponseDto> legislators = await _db.Legislators
+		List<LegislatorRawDto> raw = await _db.Legislators
 			.AsNoTracking()
 			.AsSplitQuery()
-			.Select(l => new LegislatorResponseDto(
+			.Select(l => new LegislatorRawDto(
 				l.Id,
 				l.FirstName,
 				l.MiddleName,
@@ -34,6 +32,7 @@ public class LegislatorService(AppDbContext db) : ILegislatorService
 				l.CCOffice,
 				l.CCPhone,
 				l.TermEndYear,
+				l.Chamber,
 				l.Socials.Select(s => new SocialResponseDto(
 					s.Id,
 					s.Icon,
@@ -42,27 +41,27 @@ public class LegislatorService(AppDbContext db) : ILegislatorService
 					null
 				)).ToList(),
 				l.LegislatorStrings.Select(ls => new LegislatorStringsResponseDto(
-					ls.Id,
-					ls.Text,
-					ls.Type,
-					ls.LegislatorId,
-					null
-				)).ToList()
+						ls.Id,
+						ls.Text,
+						ls.Type,
+						ls.LegislatorId,
+						null
+						)).ToList()
 			))
 			.ToListAsync();
 
-		return legislators;
+		return [.. raw.Select(r => r.RawDtoToResponseDto())];
 	}
 
 	// Legislator Get One
 	// @params (int id)
 	public async Task<LegislatorResponseDto?> GetOne(int id)
 	{
-		LegislatorResponseDto? legislator = await _db.Legislators
+		LegislatorRawDto? raw = await _db.Legislators
 			.AsNoTracking()
 			.AsSplitQuery()
 			.Where(l => l.Id == id)
-			.Select(l => new LegislatorResponseDto(
+			.Select(l => new LegislatorRawDto(
 				l.Id,
 				l.FirstName,
 				l.MiddleName,
@@ -74,6 +73,7 @@ public class LegislatorService(AppDbContext db) : ILegislatorService
 				l.CCOffice,
 				l.CCPhone,
 				l.TermEndYear,
+				l.Chamber,
 				l.Socials.Select(s => new SocialResponseDto(
 					s.Id,
 					s.Icon,
@@ -82,16 +82,19 @@ public class LegislatorService(AppDbContext db) : ILegislatorService
 					null
 				)).ToList(),
 				l.LegislatorStrings.Select(ls => new LegislatorStringsResponseDto(
-					ls.Id,
-					ls.Text,
-					ls.Type,
-					ls.LegislatorId,
-					null
-				)).ToList()
+						ls.Id,
+						ls.Text,
+						ls.Type,
+						ls.LegislatorId,
+						null
+						)).ToList()
 			))
 			.FirstOrDefaultAsync();
 
-		return legislator;
+		if (raw == null)
+			return null;
+
+		return raw.RawDtoToResponseDto();
 	}
 
 	public async Task<LegislatorResponseDto?> Create(LegislatorCreateDto dto)
@@ -124,7 +127,7 @@ public class LegislatorService(AppDbContext db) : ILegislatorService
 		await _db.SaveChangesAsync();
 
 		// Converts the legislator object into a LegislatorResponseDto and returns it.
-		return legislator.ToResponse();
+		return await GetOne(legislator.Id);
 	}
 
 	public async Task<bool> Delete(int id)

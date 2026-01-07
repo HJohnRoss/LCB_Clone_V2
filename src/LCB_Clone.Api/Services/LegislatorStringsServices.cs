@@ -24,26 +24,27 @@ public class LegislatorStringsServices(AppDbContext db) : ILegislatorStringsServ
 				ls.Text,
 				ls.Type,
 				ls.LegislatorId,
-				new LegislatorResponseDto(
-					ls.Legislator!.Id, ls.Legislator!.FirstName,
-					ls.Legislator.MiddleName,
-					ls.Legislator.LastName,
-					ls.Legislator.Party,
-					ls.Legislator.County,
-					ls.Legislator.Email,
-					ls.Legislator.LVOffice,
-					ls.Legislator.CCOffice,
-					ls.Legislator.CCPhone,
-					ls.Legislator.TermEndYear,
-					ls.Legislator.Socials.Select(s => new SocialResponseDto(
+				new LegislatorResponseDto
+				{
+					Id = ls.Legislator!.Id,
+					FirstName = ls.Legislator!.FirstName,
+					MiddleName = ls.Legislator.MiddleName,
+					LastName = ls.Legislator.LastName,
+					Party = ls.Legislator.Party,
+					County = ls.Legislator.County,
+					Email = ls.Legislator.Email,
+					LVOffice = ls.Legislator.LVOffice,
+					CCOffice = ls.Legislator.CCOffice,
+					CCPhone = ls.Legislator.CCPhone,
+					TermEndYear = ls.Legislator.TermEndYear,
+					Socials = ls.Legislator.Socials.Select(s => new SocialResponseDto(
 								s.Id,
 								s.Icon,
 								s.WebsiteLink,
 								s.LegislatorId,
 								null
 							)).ToList(),
-					null
-				)))
+				}))
 			.ToListAsync();
 
 		return legislatorStrings;
@@ -59,26 +60,27 @@ public class LegislatorStringsServices(AppDbContext db) : ILegislatorStringsServ
 				ls.Text,
 				ls.Type,
 				ls.LegislatorId,
-				new LegislatorResponseDto(
-					ls.Legislator!.Id, ls.Legislator!.FirstName,
-					ls.Legislator.MiddleName,
-					ls.Legislator.LastName,
-					ls.Legislator.Party,
-					ls.Legislator.County,
-					ls.Legislator.Email,
-					ls.Legislator.LVOffice,
-					ls.Legislator.CCOffice,
-					ls.Legislator.CCPhone,
-					ls.Legislator.TermEndYear,
-					ls.Legislator.Socials.Select(s => new SocialResponseDto(
+				new LegislatorResponseDto
+				{
+					Id = ls.Legislator!.Id,
+					FirstName = ls.Legislator!.FirstName,
+					MiddleName = ls.Legislator.MiddleName,
+					LastName = ls.Legislator.LastName,
+					Party = ls.Legislator.Party,
+					County = ls.Legislator.County,
+					Email = ls.Legislator.Email,
+					LVOffice = ls.Legislator.LVOffice,
+					CCOffice = ls.Legislator.CCOffice,
+					CCPhone = ls.Legislator.CCPhone,
+					TermEndYear = ls.Legislator.TermEndYear,
+					Socials = ls.Legislator.Socials.Select(s => new SocialResponseDto(
 								s.Id,
 								s.Icon,
 								s.WebsiteLink,
 								s.LegislatorId,
 								null
 							)).ToList(),
-					null
-				)))
+				}))
 			.FirstOrDefaultAsync();
 
 		if (legislatorString == null)

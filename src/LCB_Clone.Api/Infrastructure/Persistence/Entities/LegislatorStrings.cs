@@ -10,7 +10,7 @@ public class LegislatorString
 	[Required]
 	public required string Text { get; set; }
 	[Required]
-	public LegislatorStringType? Type { get; set; }
+	public LegislatorStringType Type { get; set; }
 
 	[Required]
 	public int? LegislatorId { get; set; }
@@ -20,7 +20,7 @@ public class LegislatorString
 
 	public LegislatorString(
 		string text,
-		LegislatorStringType? type,
+		LegislatorStringType type,
 		int? legislatorId
 	)
 	{

@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using LCB_Clone.Shared.Enums.Chambers;
 
 namespace LCB_Clone.Shared.Dtos.Legislators;
 
@@ -12,7 +13,8 @@ public class LegislatorCreateDto(
 		int? lvOffice,
 		int? ccOffice,
 		string? ccPhone,
-		int termEndYear
+		int termEndYear,
+		Chamber chamber
 		)
 {
 	[Required]
@@ -35,4 +37,7 @@ public class LegislatorCreateDto(
 
 	[Required]
 	public required int TermEndYear { get; set; } = termEndYear;
+
+	[Required]
+	public required Chamber Chamber { get; set; } = chamber;
 }

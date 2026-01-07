@@ -18,7 +18,8 @@ public static class UpdateDtoMappings
 				legislator.LVOffice,
 				legislator.CCOffice,
 				legislator.CCPhone,
-				legislator.TermEndYear
+				legislator.TermEndYear,
+				legislator.Chamber
 				)
 		{
 			// Specifying the [Required] class property's
