@@ -14,7 +14,6 @@ public class LegislatorService(AppDbContext db) : ILegislatorService
 	// Database access
 	private readonly AppDbContext _db = db;
 
-
 	public async Task<List<LegislatorResponseDto>> GetAll()
 	{
 		List<LegislatorRawDto> raw = await _db.Legislators

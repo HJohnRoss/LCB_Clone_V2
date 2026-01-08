@@ -2,6 +2,7 @@ using System.Net.Http.Json;
 using FluentAssertions;
 using LCB_Clone.Api.Tests.TestData.Legislators.Interfaces;
 using LCB_Clone.Shared.Dtos.Legislators;
+using LCB_Clone.Shared.Enums.Chambers;
 
 namespace LCB_Clone.Api.Tests.TestData.Legislators;
 
@@ -11,6 +12,7 @@ public sealed class LegislatorTestData(HttpClient client) : ILegislatorTestData
 	{
 		const string testString = "Test String";
 		const int testInt = 999;
+		const Chamber chamber = 0;
 
 		LegislatorCreateDto dto = new(
 				testString,
@@ -22,7 +24,8 @@ public sealed class LegislatorTestData(HttpClient client) : ILegislatorTestData
 				testInt,
 				testInt,
 				testString,
-				testInt
+				testInt,
+				chamber
 				)
 		{
 			FirstName = testString,
@@ -30,7 +33,8 @@ public sealed class LegislatorTestData(HttpClient client) : ILegislatorTestData
 			Party = testString,
 			County = testInt,
 			Email = testString,
-			TermEndYear = testInt
+			TermEndYear = testInt,
+			Chamber = chamber
 		};
 
 		var response = await client.PostAsJsonAsync("api/Legislator", dto);
