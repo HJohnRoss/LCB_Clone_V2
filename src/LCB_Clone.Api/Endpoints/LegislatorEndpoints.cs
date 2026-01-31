@@ -1,5 +1,6 @@
 using LCB_Clone.Api.Services.Interfaces;
 using LCB_Clone.Shared.Dtos.Legislators;
+using LCB_Clone.Shared.Validation.Legislators.Interfaces;
 
 namespace LCB_Clone.Api.Endpoints;
 
@@ -23,9 +24,18 @@ public static class LegislatorEndpoints
 				: Results.NotFound();
 		});
 
-		endpoint.MapPost("", async (ILegislatorService legislatorService, LegislatorCreateDto dto) =>
+		endpoint.MapPost("", async (
+					ILegislatorService legislatorService,
+					ILegislatorCreateValidator validator,
+					LegislatorCreateDto dto) =>
 		{
 			LegislatorResponseDto? legislator = await legislatorService.Create(dto);
+
+			// Validation
+			List<string> errors = validator.ValidateCreateLegislator(dto);
+			if (errors.Count > 0)
+				return Results.BadRequest(new { errors });
+
 			return legislator != null
 				? Results.Created($"/api/Legislator/{legislator.Id}", legislator)
 				: Results.BadRequest();

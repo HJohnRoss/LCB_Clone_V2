@@ -1,6 +1,8 @@
 using LCB_Clone.Api.Infrastructure.Extensions;
 using LCB_Clone.Api.Services;
 using LCB_Clone.Api.Services.Interfaces;
+using LCB_Clone.Shared.Validation.Legislators;
+using LCB_Clone.Shared.Validation.Legislators.Interfaces;
 
 namespace LCB_Clone.Api.Infrastructure.Persistence;
 
@@ -12,6 +14,9 @@ public static class MapServices
 		builder.Services.AddScoped<ILegislatorService, LegislatorService>();
 		builder.Services.AddScoped<ILegislatorStringsServices, LegislatorStringsServices>();
 		builder.Services.AddScoped<ISocialServices, SocialServices>();
+
+		// --- Validations ---
+		builder.Services.AddScoped<ILegislatorCreateValidator, LegisaltorCreateValidator>();
 
 		// --- Built in ---
 		builder.Services.AddPersistence(builder.Configuration);
