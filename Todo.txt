@@ -1,6 +1,3 @@
-- Validation Layer for SQL Queries
-	- Need to create validation for enum length
-
 - Create Session model
 - Create Bills model
 	- Create Enum for bills and resolutions?
