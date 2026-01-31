@@ -29,21 +29,32 @@ public static class LegislatorEndpoints
 					ILegislatorCreateValidator validator,
 					LegislatorCreateDto dto) =>
 		{
-			LegislatorResponseDto? legislator = await legislatorService.Create(dto);
-
 			// Validation
 			List<string> errors = validator.ValidateCreateLegislator(dto);
 			if (errors.Count > 0)
 				return Results.BadRequest(new { errors });
+
+			// Database logic
+			LegislatorResponseDto? legislator = await legislatorService.Create(dto);
 
 			return legislator != null
 				? Results.Created($"/api/Legislator/{legislator.Id}", legislator)
 				: Results.BadRequest();
 		});
 
-		endpoint.MapPut("", async (ILegislatorService legislatorService, LegislatorUpdateDto dto) =>
+		endpoint.MapPut("", async (
+					ILegislatorService legislatorService,
+					ILegislatorUpdateValidator validator,
+					LegislatorUpdateDto dto) =>
 		{
+			// Validation
+			List<string> errors = validator.ValidateUpdateDto(dto);
+			if (errors.Count > 0)
+				return Results.BadRequest(new { errors });
+
+			// Database logic
 			bool updated = await legislatorService.Update(dto);
+
 			return updated
 				? Results.Ok()
 				: Results.NotFound();

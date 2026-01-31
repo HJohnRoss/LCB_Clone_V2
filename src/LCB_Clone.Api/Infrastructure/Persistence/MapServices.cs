@@ -17,6 +17,7 @@ public static class MapServices
 
 		// --- Validations ---
 		builder.Services.AddScoped<ILegislatorCreateValidator, LegisaltorCreateValidator>();
+		builder.Services.AddScoped<ILegislatorUpdateValidator, LegislatorUpdateValidator>();
 
 		// --- Built in ---
 		builder.Services.AddPersistence(builder.Configuration);
