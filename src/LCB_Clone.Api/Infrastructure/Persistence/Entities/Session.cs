@@ -28,12 +28,12 @@ public class Session
 	public string FiscalReport { get; set; } = string.Empty;
 
 	// --- Journals And History ---
-	// public List<Journal> AssemblyJournals { get; set; } = [];
-	// public List<Journal> SenateJournals { get; set; } = [];
+	public List<Journal> AssemblyJournals { get; set; } = [];
+	public List<Journal> SenateJournals { get; set; } = [];
 
 	// --- Reports ---
-	// public List<Reports> Reports { get; set; } = [];
-	// public List<Bills> Bills { get; set; } = [];
+	public List<FileWithLabel> Reports { get; set; } = [];
+	// public List<Bill> Bills { get; set; } = [];
 	// public List<BDR> BDRs { get; set; } = [];
 
 	// --- Floor session ---
